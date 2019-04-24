@@ -1,6 +1,9 @@
 detectors:
   IrresponsibleModule:
     enabled: false
+  TooManyStatements:
+    exclude:
+      - IndieWeb::Endpoints::Client#response
   UtilityFunction:
     exclude:
       - FixtureHelpers#read_fixture

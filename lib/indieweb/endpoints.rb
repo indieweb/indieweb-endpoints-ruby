@@ -7,8 +7,6 @@ require 'indieweb/endpoints/version'
 require 'indieweb/endpoints/exceptions'
 
 require 'indieweb/endpoints/client'
-require 'indieweb/endpoints/request'
-
 require 'indieweb/endpoints/parsers'
 require 'indieweb/endpoints/parsers/micropub_parser'
 require 'indieweb/endpoints/parsers/webmention_parser'
