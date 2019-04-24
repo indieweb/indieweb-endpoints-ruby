@@ -5,13 +5,22 @@ describe IndieWeb::Endpoints, :get do
     { 'Content-Type': 'text/html' }
   end
 
+  let(:endpoints) do
+    {
+      authorization_endpoint: nil,
+      micropub: nil,
+      token_endpoint: nil,
+      webmention: nil
+    }
+  end
+
   context 'when given a URL that does not advertise a Micropub endpoint' do
     before do
       stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
     end
 
     it 'returns nil' do
-      expect(described_class.get(url)).to eq(micropub: nil, webmention: nil)
+      expect(described_class.get(url)).to eq(endpoints)
     end
   end
 end
