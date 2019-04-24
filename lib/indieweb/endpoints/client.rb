@@ -3,7 +3,7 @@ module IndieWeb
     class Client
       HTTP_HEADERS_OPTS = {
         accept: '*/*',
-        user_agent: 'IndieWeb Endpoints Discovery (https://rubygems.org/gems/indieweb-endpoints)'
+        user_agent: 'IndieAuth, Micropub, and Webmention Endpoint Discovery (https://rubygems.org/gems/indieweb-endpoints)'
       }.freeze
 
       def initialize(url)
