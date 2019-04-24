@@ -1,0 +1,26 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*.rb
+
+Metrics/LineLength:
+  Enabled: false
+
+Naming/RescuedExceptionsVariableName:
+  PreferredName: exception
+
+RSpec/FilePath:
+  Exclude:
+    - spec/lib/indieweb/**/*_spec.rb
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
