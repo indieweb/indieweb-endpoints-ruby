@@ -2,7 +2,11 @@ module IndieWeb
   module Endpoints
     module Parsers
       class RedirectUriParser < BaseParser
-        Parsers.register(:redirect_uri, self)
+        def self.identifier
+          :redirect_uri
+        end
+
+        Parsers.register(self)
 
         def results
           return unless results_from_http_request.any?
@@ -13,10 +17,6 @@ module IndieWeb
         end
 
         private
-
-        def identifier
-          @identifier ||= :redirect_uri
-        end
 
         def results_from_body
           link_elements.map { |element| element['href'] } if response_is_html && link_elements.any?

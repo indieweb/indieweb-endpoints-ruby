@@ -50,7 +50,7 @@ module IndieWeb
         end
 
         def link_elements_css_selector
-          @link_elements_css_selector ||= %(link[rel~="#{identifier}"][href])
+          @link_elements_css_selector ||= %(link[rel~="#{self.class.identifier}"][href])
         end
 
         def link_header
@@ -65,7 +65,7 @@ module IndieWeb
         def regexp_rel_paramater_pattern
           # Ultra-orthodox pattern matching Link header `rel` parameter including a matching identifier value
           # https://www.w3.org/TR/webmention/#sender-discovers-receiver-webmention-endpoint
-          @regexp_rel_paramater_pattern ||= /(?:;|\s)rel="?(?:#{REGEXP_REG_REL_TYPE_PATTERN}+\s)?#{identifier}(?:\s#{REGEXP_REG_REL_TYPE_PATTERN})?"?/
+          @regexp_rel_paramater_pattern ||= /(?:;|\s)rel="?(?:#{REGEXP_REG_REL_TYPE_PATTERN}+\s)?#{self.class.identifier}(?:\s#{REGEXP_REG_REL_TYPE_PATTERN})?"?/
         end
 
         def results_from_body

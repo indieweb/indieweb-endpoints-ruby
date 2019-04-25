@@ -2,13 +2,11 @@ module IndieWeb
   module Endpoints
     module Parsers
       class MicropubParser < BaseParser
-        Parsers.register(:micropub, self)
-
-        private
-
-        def identifier
-          @identifier ||= :micropub
+        def self.identifier
+          :micropub
         end
+
+        Parsers.register(self)
       end
     end
   end

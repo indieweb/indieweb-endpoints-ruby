@@ -1,8 +1,8 @@
 module IndieWeb
   module Endpoints
     module Registerable
-      def register(identifier, klass)
-        registered[identifier] = klass
+      def register(klass)
+        registered[klass.identifier] = klass
       end
 
       def registered
