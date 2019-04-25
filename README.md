@@ -79,7 +79,7 @@ puts client.endpoints # => Hash
 
 ### Exception Handling
 
-There are several exceptions that may be raised by indieweb-endpoints-ruby's underlying dependencies. These errors are raised as subclasses of `StandardError`.
+There are several exceptions that may be raised by indieweb-endpoints-ruby's underlying dependencies. These errors are raised as subclasses of `IndieWeb::Endpoints::Error` (which itself is a subclass of `StandardError`).
 
 From [jgarber623/absolutely](https://github.com/jgarber623/absolutely) and  [sporkmonger/addressable](https://github.com/sporkmonger/addressable):
 
