@@ -2,6 +2,12 @@
 
 **A Ruby gem for discovering a URL's [IndieAuth](https://indieweb.org/IndieAuth), [Micropub](https://indieweb.org/Micropub), and [Webmention](https://indieweb.org/Webmention) endpoints.**
 
+[![Gem](https://img.shields.io/gem/v/indieweb-endpoints.svg?style=for-the-badge)](https://rubygems.org/gems/indieweb-endpoints)
+[![Downloads](https://img.shields.io/gem/dt/indieweb-endpoints.svg?style=for-the-badge)](https://rubygems.org/gems/indieweb-endpoints)
+[![Build](https://img.shields.io/travis/com/indieweb/indieweb-endpoints-ruby/master.svg?style=for-the-badge)](https://travis-ci.com/indieweb/indieweb-endpoints-ruby)
+[![Maintainability](https://img.shields.io/codeclimate/maintainability/indieweb/indieweb-endpoints-ruby.svg?style=for-the-badge)](https://codeclimate.com/github/indieweb/indieweb-endpoints-ruby)
+[![Coverage](https://img.shields.io/codeclimate/c/indieweb/indieweb-endpoints-ruby.svg?style=for-the-badge)](https://codeclimate.com/github/indieweb/indieweb-endpoints-ruby/code)
+
 ## Key Features
 
 - Compliant with [Section 4.1](https://www.w3.org/TR/indieauth/#discovery-by-clients) and [Section 4.2.2](https://www.w3.org/TR/indieauth/#redirect-url) of [the W3C's IndieAuth Working Group Note](https://www.w3.org/TR/indieauth/), [Section 5.3](https://www.w3.org/TR/micropub/#endpoint-discovery) of [the W3C's Micropub Recommendation](https://www.w3.org/TR/micropub/), and [Section 3.1.2](https://www.w3.org/TR/webmention/#sender-discovers-receiver-webmention-endpoint) of [the W3C's Webmention Recommendation](https://www.w3.org/TR/webmention/).
