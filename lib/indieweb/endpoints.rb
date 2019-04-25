@@ -7,9 +7,12 @@ require 'indieweb/endpoints/version'
 require 'indieweb/endpoints/exceptions'
 
 require 'indieweb/endpoints/client'
+require 'indieweb/endpoints/registerable'
+
 require 'indieweb/endpoints/parsers'
 require 'indieweb/endpoints/parsers/authorization_endpoint_parser'
 require 'indieweb/endpoints/parsers/micropub_parser'
+require 'indieweb/endpoints/parsers/redirect_uri_parser'
 require 'indieweb/endpoints/parsers/token_endpoint_parser'
 require 'indieweb/endpoints/parsers/webmention_parser'
 

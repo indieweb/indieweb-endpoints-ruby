@@ -9,6 +9,7 @@ describe IndieWeb::Endpoints, :get do
     {
       authorization_endpoint: nil,
       micropub: nil,
+      redirect_uri: nil,
       token_endpoint: nil,
       webmention: nil
     }
