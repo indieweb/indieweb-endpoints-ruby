@@ -32,6 +32,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'absolutely', '~> 1.1'
   spec.add_runtime_dependency 'addressable', '~> 2.6'
-  spec.add_runtime_dependency 'http', '~> 4.1'
+  spec.add_runtime_dependency 'http', '~> 5.0.0.pre'
   spec.add_runtime_dependency 'nokogiri', '~> 1.10'
 end
