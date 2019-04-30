@@ -12,7 +12,7 @@ describe IndieWeb::Endpoints::Parsers::WebmentionParser do
   context 'when given a URL advertising its Webmention endpoint in an HTTP Link header' do
     let(:url) { 'https://webmention.rocks/test/1' }
 
-    it 'returns the endpoint' do
+    it 'returns a String' do
       expect(described_class.new(client.response).results).to eq('https://webmention.rocks/test/1/webmention')
     end
   end
@@ -20,7 +20,7 @@ describe IndieWeb::Endpoints::Parsers::WebmentionParser do
   # TODO: Rework these specs to use WebMock: https://github.com/bblimke/webmock
   context 'when running the webmention.rocks Endpoint Discovery tests' do
     WebmentionRocks::ENDPOINT_DISCOVERY_TESTS.each do |url, regexp|
-      it 'returns the endpoint' do
+      it 'matches the RegExp' do
         client = IndieWeb::Endpoints::Client.new(url)
 
         expect(described_class.new(client.response).results).to match(regexp)

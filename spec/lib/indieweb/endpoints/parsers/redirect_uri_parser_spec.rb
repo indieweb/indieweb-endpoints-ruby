@@ -27,7 +27,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
         stub_request(:get, url).to_return(headers: { 'Link': '</redirect>; rel=redirect_uri' })
       end
 
-      it 'returns an array of endpoints' do
+      it 'returns an Array' do
         expect(described_class.new(client.response).results).to eq(endpoints)
       end
     end
@@ -37,7 +37,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
         stub_request(:get, url).to_return(headers: { 'Link': %(<#{endpoint}>; rel=redirect_uri) })
       end
 
-      it 'returns an array of endpoints' do
+      it 'returns an Array' do
         expect(described_class.new(client.response).results).to eq(endpoints)
       end
     end
@@ -47,7 +47,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
         stub_request(:get, url).to_return(headers: { 'LinK' => %(<#{endpoint}>; rel=redirect_uri) })
       end
 
-      it 'returns an array of endpoints' do
+      it 'returns an Array' do
         expect(described_class.new(client.response).results).to eq(endpoints)
       end
     end
@@ -57,7 +57,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
         stub_request(:get, url).to_return(headers: { 'Link': %(<#{endpoint}>; rel="redirect_uri") })
       end
 
-      it 'returns an array of endpoints' do
+      it 'returns an Array' do
         expect(described_class.new(client.response).results).to eq(endpoints)
       end
     end
@@ -67,7 +67,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
         stub_request(:get, url).to_return(headers: { 'Link': %(<#{endpoint}>; rel="redirect_uri somethingelse") })
       end
 
-      it 'returns an array of endpoints' do
+      it 'returns an Array' do
         expect(described_class.new(client.response).results).to eq(endpoints)
       end
     end
@@ -79,7 +79,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
         stub_request(:get, url).to_return(headers: { 'Link': [%(<#{endpoint}>; rel="redirect_uri"), '</callback>; rel="redirect_uri"'] })
       end
 
-      it 'returns an array of endpoints' do
+      it 'returns an Array' do
         expect(described_class.new(client.response).results).to eq(endpoints)
       end
     end
@@ -89,7 +89,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
         stub_request(:get, url).to_return(headers: { 'Link': %(</redirect_uri/error>; rel="other", <#{endpoint}>; rel="redirect_uri") })
       end
 
-      it 'returns an array of endpoints' do
+      it 'returns an Array' do
         expect(described_class.new(client.response).results).to eq(endpoints)
       end
     end
@@ -105,7 +105,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
         stub_request(:get, "#{url}/redirect_uri").to_return(headers: http_response_headers.merge('Link': "<#{endpoint}>; rel=redirect_uri"))
       end
 
-      it 'returns an array of endpoints' do
+      it 'returns an Array' do
         expect(described_class.new(client.response).results).to eq(endpoints)
       end
     end
@@ -119,7 +119,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
         stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
       end
 
-      it 'returns an array of endpoints' do
+      it 'returns an Array' do
         expect(described_class.new(client.response).results).to eq(endpoints)
       end
     end
@@ -131,7 +131,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
         stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
       end
 
-      it 'returns an array of endpoints' do
+      it 'returns an Array' do
         expect(described_class.new(client.response).results).to eq(endpoints)
       end
     end
@@ -143,7 +143,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
         stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
       end
 
-      it 'returns an array of endpoints' do
+      it 'returns an Array' do
         expect(described_class.new(client.response).results).to eq(endpoints)
       end
     end
@@ -155,7 +155,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
         stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
       end
 
-      it 'returns an array of endpoints' do
+      it 'returns an Array' do
         expect(described_class.new(client.response).results).to eq(endpoints)
       end
     end
@@ -167,7 +167,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
         stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
       end
 
-      it 'returns an array of endpoints' do
+      it 'returns an Array' do
         expect(described_class.new(client.response).results).to eq(endpoints)
       end
     end
@@ -179,7 +179,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
         stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
       end
 
-      it 'returns an array of endpoints' do
+      it 'returns an Array' do
         expect(described_class.new(client.response).results).to eq([url])
       end
     end
@@ -191,7 +191,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
         stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
       end
 
-      it 'returns an array of endpoints' do
+      it 'returns an Array' do
         expect(described_class.new(client.response).results).to eq(endpoints)
       end
     end
@@ -205,7 +205,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
         stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
       end
 
-      it 'returns an array of endpoints' do
+      it 'returns an Array' do
         expect(described_class.new(client.response).results).to eq(endpoints)
       end
     end
@@ -219,7 +219,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
         stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
       end
 
-      it 'returns an array of endpoints' do
+      it 'returns an Array' do
         expect(described_class.new(client.response).results).to eq(endpoints)
       end
     end
@@ -246,7 +246,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
       stub_request(:get, url).to_return(headers: http_response_headers.merge('Link': %(</redirect>; rel="redirect_uri")), body: read_fixture(url))
     end
 
-    it 'returns an array of endpoints' do
+    it 'returns an Array' do
       expect(described_class.new(client.response).results).to eq(endpoints)
     end
   end

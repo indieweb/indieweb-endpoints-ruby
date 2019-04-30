@@ -26,7 +26,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
         stub_request(:get, url).to_return(headers: { 'Link': '</token_endpoint>; rel=token_endpoint' })
       end
 
-      it 'returns the endpoint' do
+      it 'returns a String' do
         expect(described_class.new(client.response).results).to eq(endpoint)
       end
     end
@@ -37,7 +37,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
         stub_request(:get, url).to_return(headers: { 'Link': %(<#{endpoint}>; rel=token_endpoint) })
       end
 
-      it 'returns the endpoint' do
+      it 'returns a String' do
         expect(described_class.new(client.response).results).to eq(endpoint)
       end
     end
@@ -48,7 +48,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
         stub_request(:get, url).to_return(headers: { 'LinK' => %(<#{endpoint}>; rel=token_endpoint) })
       end
 
-      it 'returns the endpoint' do
+      it 'returns a String' do
         expect(described_class.new(client.response).results).to eq(endpoint)
       end
     end
@@ -59,7 +59,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
         stub_request(:get, url).to_return(headers: { 'Link': %(<#{endpoint}>; rel="token_endpoint") })
       end
 
-      it 'returns the endpoint' do
+      it 'returns a String' do
         expect(described_class.new(client.response).results).to eq(endpoint)
       end
     end
@@ -70,7 +70,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
         stub_request(:get, url).to_return(headers: { 'Link': %(<#{endpoint}>; rel="token_endpoint somethingelse") })
       end
 
-      it 'returns the endpoint' do
+      it 'returns a String' do
         expect(described_class.new(client.response).results).to eq(endpoint)
       end
     end
@@ -81,7 +81,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
         stub_request(:get, url).to_return(headers: { 'Link': [%(<#{endpoint}>; rel="token_endpoint"), '</token_endpoint/error>; rel="other"'] })
       end
 
-      it 'returns the endpoint' do
+      it 'returns a String' do
         expect(described_class.new(client.response).results).to eq(endpoint)
       end
     end
@@ -92,7 +92,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
         stub_request(:get, url).to_return(headers: { 'Link': %(</token_endpoint/error>; rel="other", <#{endpoint}>; rel="token_endpoint") })
       end
 
-      it 'returns the endpoint' do
+      it 'returns a String' do
         expect(described_class.new(client.response).results).to eq(endpoint)
       end
     end
@@ -109,7 +109,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
         stub_request(:get, "#{url}/token_endpoint").to_return(headers: http_response_headers.merge('Link': "<#{endpoint}>; rel=token_endpoint"))
       end
 
-      it 'returns the endpoint' do
+      it 'returns a String' do
         expect(described_class.new(client.response).results).to eq(endpoint)
       end
     end
@@ -124,7 +124,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
         stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
       end
 
-      it 'returns the endpoint' do
+      it 'returns a String' do
         expect(described_class.new(client.response).results).to eq(endpoint)
       end
     end
@@ -137,7 +137,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
         stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
       end
 
-      it 'returns the endpoint' do
+      it 'returns a String' do
         expect(described_class.new(client.response).results).to eq(endpoint)
       end
     end
@@ -150,7 +150,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
         stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
       end
 
-      it 'returns the endpoint' do
+      it 'returns a String' do
         expect(described_class.new(client.response).results).to eq(endpoint)
       end
     end
@@ -163,7 +163,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
         stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
       end
 
-      it 'returns the endpoint' do
+      it 'returns a String' do
         expect(described_class.new(client.response).results).to eq(endpoint)
       end
     end
@@ -176,7 +176,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
         stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
       end
 
-      it 'returns the endpoint' do
+      it 'returns a String' do
         expect(described_class.new(client.response).results).to eq(endpoint)
       end
     end
@@ -189,7 +189,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
         stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
       end
 
-      it 'returns the endpoint' do
+      it 'returns a String' do
         expect(described_class.new(client.response).results).to eq(url)
       end
     end
@@ -202,7 +202,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
         stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
       end
 
-      it 'returns the endpoint' do
+      it 'returns a String' do
         expect(described_class.new(client.response).results).to eq(endpoint)
       end
     end
@@ -217,7 +217,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
         stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
       end
 
-      it 'returns the endpoint' do
+      it 'returns a String' do
         expect(described_class.new(client.response).results).to eq(endpoint)
       end
     end
@@ -232,7 +232,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
         stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
       end
 
-      it 'returns the endpoint' do
+      it 'returns a String' do
         expect(described_class.new(client.response).results).to eq(endpoint)
       end
     end
@@ -258,7 +258,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
       stub_request(:get, url).to_return(headers: http_response_headers.merge('Link': %(<#{endpoint}>; rel="token_endpoint")), body: read_fixture(url))
     end
 
-    it 'returns the endpoint' do
+    it 'returns a String' do
       expect(described_class.new(client.response).results).to eq(endpoint)
     end
   end
