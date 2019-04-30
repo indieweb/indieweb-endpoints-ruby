@@ -2,7 +2,7 @@
 
 ## 0.3.0 / 2019-04-30
 
-- `IndieWeb::Endpoints::Client#endpoints` returns an `OpenStruct` instead of a `Hash` ([c209b0b](https://github.com/indieweb/indieweb-endpoints-ruby/commit/c209b0b))
+- `IndieWeb::Endpoints::Client#endpoints` returns an `OpenStruct` instead of a `Hash` ([c209b0b](https://github.com/indieweb/indieweb-endpoints-ruby/commit/c209b0b)).
 
 ## 0.2.0 / 2019-04-25
 
