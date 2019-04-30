@@ -47,10 +47,10 @@ require 'indieweb/endpoints'
 
 endpoints = IndieWeb::Endpoints.get('https://aaronparecki.com')
 
-puts endpoints
+puts endpoints # => #<OpenStruct …>
 ```
 
-This example will search `https://aaronparecki.com` for valid IndieAuth, Micropub, and Webmention endpoints. In this case, the program returns a `Hash`:
+This example will search `https://aaronparecki.com` for valid IndieAuth, Micropub, and Webmention endpoints. In this case, the program returns an `OpenStruct` with the following attributes:
 
 ```ruby
 {
@@ -62,7 +62,7 @@ This example will search `https://aaronparecki.com` for valid IndieAuth, Micropu
 }
 ```
 
-Each key in the resulting `Hash` will return either a `String` representing a URL or `nil`. The `redirect_uri` key will return either an `Array` or `nil` since a given URL may register multiple callback URLs.
+Each attribute will return either a `String` representing a URL or `nil`. The `redirect_uri` attribute will return either an `Array` or `nil` since a given URL may register multiple callback URLs.
 
 ### Advanced Usage
 
@@ -73,8 +73,9 @@ require 'indieweb/endpoints'
 
 client = IndieWeb::Endpoints::Client.new('https://aaronparecki.com')
 
-puts client.response  # => HTTP::Response
-puts client.endpoints # => Hash
+puts client.response             # => #<HTTP::Response …>
+puts client.endpoints            # => #<OpenStruct …>
+puts client.endpoints.webmention # => 'https://webmention.io/aaronpk/webmention'
 ```
 
 ### Exception Handling
