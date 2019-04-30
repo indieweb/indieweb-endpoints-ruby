@@ -6,13 +6,13 @@ describe IndieWeb::Endpoints, :get do
   end
 
   let(:endpoints) do
-    {
+    OpenStruct.new(
       authorization_endpoint: nil,
       micropub: nil,
       redirect_uri: nil,
       token_endpoint: nil,
       webmention: nil
-    }
+    )
   end
 
   context 'when given a URL that does not advertise a Micropub endpoint' do

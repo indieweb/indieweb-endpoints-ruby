@@ -17,7 +17,7 @@ module IndieWeb
       end
 
       def endpoints
-        @endpoints ||= Parsers.registered.transform_values { |parser| parser.new(response).results }
+        @endpoints ||= OpenStruct.new(Parsers.registered.transform_values { |parser| parser.new(response).results })
       end
 
       def response
