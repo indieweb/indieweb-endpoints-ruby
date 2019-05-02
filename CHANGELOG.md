@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0 / 2019-05-01
+
+- Add `IndieWeb::Endpoints.client` method ([c4d42d0](https://github.com/indieweb/indieweb-endpoints-ruby/commit/c4d42d0)).
+- Rename base `Error` class to `IndieWebEndpointsError` ([d6d6f98](https://github.com/indieweb/indieweb-endpoints-ruby/commit/d6d6f98)).
+- Add `HttpRequest` class ([7864cbd](https://github.com/indieweb/indieweb-endpoints-ruby/commit/7864cbd)).
+
 ## 0.3.0 / 2019-04-30
 
 - `IndieWeb::Endpoints::Client#endpoints` returns an `OpenStruct` instead of a `Hash` ([c209b0b](https://github.com/indieweb/indieweb-endpoints-ruby/commit/c209b0b)).
