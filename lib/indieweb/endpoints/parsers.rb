@@ -21,7 +21,7 @@ module IndieWeb
         def results
           return unless results_from_http_request
 
-          @results ||= Absolutely.to_absolute_uri(base: @response.uri.to_s, relative: results_from_http_request)
+          @results ||= Absolutely.to_abs(base: @response.uri.to_s, relative: results_from_http_request)
         rescue Absolutely::InvalidURIError => exception
           raise InvalidURIError, exception
         end

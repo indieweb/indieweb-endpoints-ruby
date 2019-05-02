@@ -11,7 +11,7 @@ module IndieWeb
         def results
           return unless results_from_http_request.any?
 
-          @results ||= results_from_http_request.map { |endpoint| Absolutely.to_absolute_uri(base: @response.uri.to_s, relative: endpoint) }.uniq.sort
+          @results ||= results_from_http_request.map { |endpoint| Absolutely.to_abs(base: @response.uri.to_s, relative: endpoint) }.uniq.sort
         rescue Absolutely::InvalidURIError => exception
           raise InvalidURIError, exception
         end
