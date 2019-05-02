@@ -2,6 +2,9 @@ require:
   - rubocop-performance
   - rubocop-rspec
 
+Layout/AlignHash:
+  EnforcedHashRocketStyle: table
+
 Metrics/BlockLength:
   Exclude:
     - spec/**/*.rb

@@ -3,6 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'indieweb/endpoints/version'
 
+# rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |spec|
   spec.required_ruby_version = ['>= 2.4', '< 2.7']
 
@@ -20,6 +21,11 @@ Gem::Specification.new do |spec|
 
   spec.require_paths = ['lib']
 
+  spec.metadata = {
+    'bug_tracker_uri' => "#{spec.homepage}/issues",
+    'changelog_uri'   => "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md"
+  }
+
   spec.add_development_dependency 'rake', '~> 12.3'
   spec.add_development_dependency 'reek', '~> 5.4'
   spec.add_development_dependency 'rspec', '~> 3.8'
@@ -35,3 +41,4 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'http', '~> 5.0.0.pre'
   spec.add_runtime_dependency 'nokogiri', '~> 1.10'
 end
+# rubocop:enable Metrics/BlockLength
