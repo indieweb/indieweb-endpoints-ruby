@@ -66,12 +66,12 @@ Each attribute will return either a `String` representing a URL or `nil`. The `r
 
 ### Advanced Usage
 
-Should the need arise, you may work directly with the `IndieWeb::Endpoints::Client` class:
+Should the need arise, you may work with the `IndieWeb::Endpoints::Client` class:
 
 ```ruby
 require 'indieweb/endpoints'
 
-client = IndieWeb::Endpoints::Client.new('https://aaronparecki.com')
+client = IndieWeb::Endpoints.client('https://aaronparecki.com')
 
 puts client.response             # => #<HTTP::Response …>
 puts client.endpoints            # => #<OpenStruct …>

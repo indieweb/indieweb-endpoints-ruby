@@ -18,8 +18,14 @@ require 'indieweb/endpoints/parsers/webmention_parser'
 
 module IndieWeb
   module Endpoints
-    def self.get(url)
-      Client.new(url).endpoints
+    class << self
+      def client(url)
+        Client.new(url)
+      end
+
+      def get(url)
+        client(url).endpoints
+      end
     end
   end
 end
