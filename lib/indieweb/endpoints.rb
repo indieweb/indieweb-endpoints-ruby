@@ -7,6 +7,7 @@ require 'indieweb/endpoints/version'
 require 'indieweb/endpoints/exceptions'
 
 require 'indieweb/endpoints/client'
+require 'indieweb/endpoints/http_request'
 require 'indieweb/endpoints/registerable'
 
 require 'indieweb/endpoints/parsers'
