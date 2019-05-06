@@ -9,7 +9,7 @@ module IndieWeb
         },
         headers: {
           accept: '*/*',
-          user_agent: 'IndieAuth, Micropub, and Webmention Endpoint Discovery (https://rubygems.org/gems/indieweb-endpoints)'
+          user_agent: 'IndieWeb Endpoint Discovery (https://rubygems.org/gems/indieweb-endpoints)'
         },
         timeout_options: {
           connect_timeout: 5,
