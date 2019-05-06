@@ -15,7 +15,7 @@ describe IndieWeb::Endpoints, :get do
     )
   end
 
-  context 'when given a URL that does not advertise a Micropub endpoint' do
+  context 'when given a URL that does not advertise any endpoints' do
     before do
       stub_request(:get, url).to_return(headers: http_response_headers, body: read_fixture(url))
     end
