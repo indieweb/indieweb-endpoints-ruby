@@ -6,7 +6,7 @@ module IndieWeb
 
         @uri = Addressable::URI.parse(url)
 
-        raise ArgumentError, 'url must be an absolute URL (e.g. https://example.com)' unless @uri.absolute?
+        raise ArgumentError, 'url must be an absolute URL (e.g. https://example.com)' unless @uri.absolute? && @uri.scheme.match?(/^https?$/)
       rescue Addressable::URI::InvalidURIError => exception
         raise InvalidURIError, exception
       end
