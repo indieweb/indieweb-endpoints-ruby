@@ -1,6 +1,6 @@
 # indieweb-endpoints-ruby
 
-**A Ruby gem for discovering a URL's [IndieAuth](https://indieweb.org/IndieAuth), [Micropub](https://indieweb.org/Micropub), and [Webmention](https://indieweb.org/Webmention) endpoints.**
+**A Ruby gem for discovering a URL's [IndieAuth](https://indieweb.org/IndieAuth), [Micropub](https://indieweb.org/Micropub), [Microsub](https://indieweb.org/Microsub), and [Webmention](https://indieweb.org/Webmention) endpoints.**
 
 [![Gem](https://img.shields.io/gem/v/indieweb-endpoints.svg?style=for-the-badge)](https://rubygems.org/gems/indieweb-endpoints)
 [![Downloads](https://img.shields.io/gem/dt/indieweb-endpoints.svg?style=for-the-badge)](https://rubygems.org/gems/indieweb-endpoints)
@@ -56,6 +56,7 @@ This example will search `https://aaronparecki.com` for valid IndieAuth, Micropu
 {
   authorization_endpoint: 'https://aaronparecki.com/auth',
   micropub: 'https://aaronparecki.com/micropub',
+  microsub: 'https://aperture.p3k.io/microsub/1',
   redirect_uri: nil,
   token_endpoint: 'https://aaronparecki.com/auth/token',
   webmention: 'https://webmention.io/aaronpk/webmention'

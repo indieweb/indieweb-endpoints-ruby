@@ -9,6 +9,7 @@ describe IndieWeb::Endpoints, :get do
     OpenStruct.new(
       authorization_endpoint: nil,
       micropub: nil,
+      microsub: nil,
       redirect_uri: nil,
       token_endpoint: nil,
       webmention: nil

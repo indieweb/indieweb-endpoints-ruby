@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Jason Garber']
   spec.email         = ['jason@sixtwothree.org']
 
-  spec.summary       = 'Discover a URL’s IndieAuth, Micropub, and Webmention endpoints.'
+  spec.summary       = 'Discover a URL’s IndieAuth, Micropub, Microsub, and Webmention endpoints.'
   spec.description   = spec.summary
   spec.homepage      = 'https://github.com/indieweb/indieweb-endpoints-ruby'
   spec.license       = 'MIT'
