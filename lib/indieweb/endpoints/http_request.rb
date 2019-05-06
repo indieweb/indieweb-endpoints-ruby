@@ -1,13 +1,24 @@
 module IndieWeb
   module Endpoints
     class HttpRequest
-      HTTP_HEADERS_OPTS = {
-        accept: '*/*',
-        user_agent: 'IndieAuth, Micropub, and Webmention Endpoint Discovery (https://rubygems.org/gems/indieweb-endpoints)'
+      # Defaults derived from Webmention specification examples
+      # https://www.w3.org/TR/webmention/#limits-on-get-requests
+      HTTP_CLIENT_OPTS = {
+        follow: {
+          max_hops: 20
+        },
+        headers: {
+          accept: '*/*',
+          user_agent: 'IndieAuth, Micropub, and Webmention Endpoint Discovery (https://rubygems.org/gems/indieweb-endpoints)'
+        },
+        timeout_options: {
+          connect_timeout: 5,
+          read_timeout: 5
+        }
       }.freeze
 
       def self.get(uri)
-        HTTP.follow.headers(HTTP_HEADERS_OPTS).timeout(connect: 10, read: 10).get(uri)
+        HTTP::Client.new(HTTP_CLIENT_OPTS).request(:get, uri)
       rescue HTTP::ConnectionError,
              HTTP::TimeoutError,
              HTTP::Redirector::TooManyRedirectsError => exception
