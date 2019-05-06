@@ -2,13 +2,13 @@ module IndieWeb
   module Endpoints
     class Client
       def initialize(url)
-        raise ArgumentError, "url must be a String (given #{url.class.name})" unless url.is_a?(String)
-
         @uri = Addressable::URI.parse(url)
 
         raise ArgumentError, 'url must be an absolute URL (e.g. https://example.com)' unless @uri.absolute? && @uri.scheme.match?(/^https?$/)
       rescue Addressable::URI::InvalidURIError => exception
         raise InvalidURIError, exception
+      rescue NoMethodError, TypeError
+        raise ArgumentError, "url must be a String (given #{url.class})"
       end
 
       def endpoints
