@@ -10,6 +10,14 @@ module IndieWeb
 
         private
 
+        def results_from_body
+          WebmentionLinkElementParser.new(response, self.class.identifier).results
+        end
+      end
+
+      class WebmentionLinkElementParser < LinkElementParser
+        private
+
         def link_element
           # Return first `a` or `link` element with valid `rel` attribute
           # https://www.w3.org/TR/webmention/#sender-discovers-receiver-webmention-endpoint
@@ -17,7 +25,7 @@ module IndieWeb
         end
 
         def link_elements_css_selector
-          @link_elements_css_selector ||= %([rel~="#{self.class.identifier}"][href])
+          @link_elements_css_selector ||= %([rel~="#{identifier}"][href]:not([href*="#"]))
         end
       end
     end
