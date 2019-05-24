@@ -76,10 +76,10 @@ module IndieWeb
       class LinkHeaderParser
         # Ultra-orthodox pattern matching allowed values in Link header `rel` parameter
         # https://tools.ietf.org/html/rfc8288#section-3.3
-        REGEXP_REG_REL_TYPE_PATTERN = '[a-z\d][a-z\d\-\.]*'.freeze
+        REGEXP_REG_REL_TYPE_PATTERN = '[a-z][a-z\d\.\-]*'.freeze
 
         # Liberal pattern capturing a string of text (excepting the octothorp) between angle brackets
-        # https://tools.ietf.org/html/rfc5988#section-5.1
+        # https://tools.ietf.org/html/rfc8288#section-3.1
         REGEXP_TARGET_URI_PATTERN = '^<(.[^#]*)>;'.freeze
 
         attr_reader :identifier, :response
