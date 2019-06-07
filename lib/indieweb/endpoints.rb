@@ -1,3 +1,5 @@
+require 'ostruct'
+
 require 'absolutely'
 require 'addressable/uri'
 require 'http'
