@@ -35,8 +35,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'simplecov-console', '~> 0.5.0'
   spec.add_development_dependency 'webmock', '~> 3.6'
 
-  spec.add_runtime_dependency 'absolutely', '~> 2.1'
+  spec.add_runtime_dependency 'absolutely', '~> 3.0'
   spec.add_runtime_dependency 'addressable', '~> 2.6'
   spec.add_runtime_dependency 'http', '~> 5.0.0.pre'
+  spec.add_runtime_dependency 'link-header-parser', '~> 0.1.0'
   spec.add_runtime_dependency 'nokogiri', '~> 1.10'
 end
