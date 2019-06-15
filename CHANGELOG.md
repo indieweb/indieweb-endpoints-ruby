@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.0 / 2019-06-15
+
+- Updates Parser-related classes to resolve [#2](https://github.com/indieweb/indieweb-endpoints-ruby/issues/2).
+
 ## 0.5.0 / 2019-05-09
 
 - Add support for Microsub endpoint discovery ([5e81d9f](https://github.com/indieweb/indieweb-endpoints-ruby/commit/5e81d9f)).
