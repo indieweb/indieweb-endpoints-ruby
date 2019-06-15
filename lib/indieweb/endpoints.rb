@@ -3,6 +3,7 @@ require 'ostruct'
 require 'absolutely'
 require 'addressable/uri'
 require 'http'
+require 'link-header-parser'
 require 'nokogiri'
 
 require 'indieweb/endpoints/version'
