@@ -76,7 +76,7 @@ describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
       let(:endpoints) { ['https://example.com/callback', 'https://example.com/redirect'] }
 
       before do
-        stub_request(:get, url).to_return(headers: { 'Link': [%(<#{endpoint}#error>; rel="redirect_uri"), %(<#{endpoint}>; rel="redirect_uri"), '</callback>; rel="redirect_uri"'] })
+        stub_request(:get, url).to_return(headers: { 'Link': [%(<#{endpoint}#error>; rel="redirect_uri"), %(</redirect_uri/error>; rel="redirect_uri_error"), %(<#{endpoint}>; rel="redirect_uri"), '</callback>; rel="redirect_uri"'] })
       end
 
       it 'returns an Array' do
