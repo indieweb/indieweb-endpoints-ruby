@@ -29,22 +29,18 @@ module IndieWeb
         def results_from_http_request
           @results_from_http_request ||= [results_from_headers, results_from_body].flatten.compact
         end
-      end
 
-      class RedirectUriLinkElementParser < LinkElementParser
-        def results
-          link_elements.map { |element| element['href'] } if response_is_html && link_elements.any?
+        class RedirectUriLinkElementParser < BaseLinkElementParser
+          def results
+            link_elements.map { |element| element['href'] } if response_is_html && link_elements.any?
+          end
         end
-      end
 
-      class RedirectUriLinkHeaderParser < LinkHeaderParser
-        def results
-          return unless link_headers.any?
+        class RedirectUriLinkHeaderParser < BaseLinkHeaderParser
+          def results
+            return unless link_headers
 
-          link_headers.map do |header|
-            endpoint_match_data = header.match(REGEXP_TARGET_URI_PATTERN)
-
-            endpoint_match_data[1] if endpoint_match_data
+            link_headers.map(&:target_uri)
           end
         end
       end
