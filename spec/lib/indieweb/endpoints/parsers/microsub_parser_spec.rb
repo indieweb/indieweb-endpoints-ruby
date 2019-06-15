@@ -78,7 +78,7 @@ describe IndieWeb::Endpoints::Parsers::MicrosubParser do
     # Similar to https://webmention.rocks/test/18
     context 'when the response includes multiple HTTP Link headers' do
       before do
-        stub_request(:get, url).to_return(headers: { 'Link': [%(<#{endpoint}#error>; rel="microsub"), %(<#{endpoint}>; rel="microsub"), '</microsub/error>; rel="other"'] })
+        stub_request(:get, url).to_return(headers: { 'Link': [%(<#{endpoint}#error>; rel="microsub"), %(</microsub/error>; rel="microsub_error"), %(<#{endpoint}>; rel="microsub"), '</microsub/error>; rel="other"'] })
       end
 
       it 'returns a String' do

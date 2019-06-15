@@ -78,7 +78,7 @@ describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
     # Similar to https://webmention.rocks/test/18
     context 'when the response includes multiple HTTP Link headers' do
       before do
-        stub_request(:get, url).to_return(headers: { 'Link': [%(<#{endpoint}#error>; rel="token_endpoint"), %(<#{endpoint}>; rel="token_endpoint"), '</token_endpoint/error>; rel="other"'] })
+        stub_request(:get, url).to_return(headers: { 'Link': [%(<#{endpoint}#error>; rel="token_endpoint"), %(</token_endpoint/error>; rel="token_endpoint_error"), %(<#{endpoint}>; rel="token_endpoint"), '</token_endpoint/error>; rel="other"'] })
       end
 
       it 'returns a String' do

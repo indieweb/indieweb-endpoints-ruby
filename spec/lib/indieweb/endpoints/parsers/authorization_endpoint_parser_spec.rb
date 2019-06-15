@@ -78,7 +78,7 @@ describe IndieWeb::Endpoints::Parsers::AuthorizationEndpointParser do
     # Similar to https://webmention.rocks/test/18
     context 'when the response includes multiple HTTP Link headers' do
       before do
-        stub_request(:get, url).to_return(headers: { 'Link': [%(<#{endpoint}#error>; rel="authorization_endpoint"), %(<#{endpoint}>; rel="authorization_endpoint"), '</authorization_endpoint/error>; rel="other"'] })
+        stub_request(:get, url).to_return(headers: { 'Link': [%(<#{endpoint}#error>; rel="authorization_endpoint"), %(</authorization_endpoint/error>; rel="authorization_endpoint_error"), %(<#{endpoint}>; rel="authorization_endpoint"), '</authorization_endpoint/error>; rel="other"'] })
       end
 
       it 'returns a String' do
