@@ -25,13 +25,13 @@
 
 ## 0.3.0 / 2019-04-30
 
-- `IndieWeb::Endpoints::Client#endpoints` returns an `OpenStruct` instead of a `Hash (c209b0b).
+- `IndieWeb::Endpoints::Client#endpoints` returns an `OpenStruct` instead of a `Hash` (c209b0b).
 
 ## 0.2.0 / 2019-04-25
 
 - Subclass exceptions under `IndieWeb::Endpoints::Error` (667eec7)
 - Refactor parsers and `Registerable` module (3b96858)
-- Refactor Client#response method (c36fda3)
+- Refactor `Client#response` method (c36fda3)
 
 ## 0.1.0 / 2019-04-24
 
