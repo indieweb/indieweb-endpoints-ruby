@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.0 / 2019-07-03
+
+- Update runtime and development dependencies (d99214b and 7692ab3)
+
 ## 0.6.0 / 2019-06-15
 
 - Update Parser-related classes to resolve #2
