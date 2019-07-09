@@ -4,6 +4,8 @@ detectors:
   UtilityFunction:
     exclude:
       - FixtureHelpers#read_fixture
+      - IndieWeb::Endpoints::Services::ResponseBodyParserService#parse
+      - IndieWeb::Endpoints::Services::ResponseHeadersParserService#parse
 
 exclude_paths:
   - vendor/
