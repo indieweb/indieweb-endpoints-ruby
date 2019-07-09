@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0 / 2019-07-08
+
+-  Refactor gem code using service objects approach (78511d7 and 9d2fee0)
+
 ## 0.7.0 / 2019-07-03
 
 - Update runtime and development dependencies (d99214b and 7692ab3)
