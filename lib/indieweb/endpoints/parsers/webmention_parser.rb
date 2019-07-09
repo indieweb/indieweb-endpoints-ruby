@@ -7,6 +7,17 @@ module IndieWeb
         end
 
         Parsers.register(self)
+
+        private
+
+        def results_for_node(node)
+          Services::ResponseBodyParserService.new.parse(response, self.class.identifier, node)
+        end
+
+        # https://www.w3.org/TR/webmention/#sender-discovers-receiver-webmention-endpoint
+        def results_from_body
+          @results_from_body ||= results_for_node('link') + results_for_node('a')
+        end
       end
     end
   end
