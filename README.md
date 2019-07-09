@@ -47,10 +47,10 @@ require 'indieweb/endpoints'
 
 endpoints = IndieWeb::Endpoints.get('https://aaronparecki.com')
 
-puts endpoints # => #<OpenStruct …>
+puts endpoints # => #<OpenStruct authorization_endpoint="https://aaronparecki.com/auth", micropub="https://aaronparecki.com/micropub", microsub="https://aperture.p3k.io/microsub/1", redirect_uri=nil, token_endpoint="https://aaronparecki.com/auth/token", webmention="https://webmention.io/aaronpk/webmention">
 ```
 
-This example will search `https://aaronparecki.com` for valid IndieAuth, Micropub, and Webmention endpoints. In this case, the program returns an `OpenStruct` with the following attributes:
+This example will search `https://aaronparecki.com` for valid IndieAuth, Micropub, and Webmention endpoints. In this case, the program returns an `OpenStruct` with the following attributes (represented below as a `Hash`):
 
 ```ruby
 {
@@ -72,11 +72,18 @@ Should the need arise, you may work with the `IndieWeb::Endpoints::Client` class
 ```ruby
 require 'indieweb/endpoints'
 
-client = IndieWeb::Endpoints.client('https://aaronparecki.com')
+client = IndieWeb::Endpoints::Client.new('https://aaronparecki.com')
 
-puts client.response             # => #<HTTP::Response …>
-puts client.endpoints            # => #<OpenStruct …>
-puts client.endpoints.webmention # => 'https://webmention.io/aaronpk/webmention'
+puts client.response # => #<HTTP::Response/1.1 200 OK {…}>
+
+endpoints = client.endpoints
+
+puts endpoints.authorization_endpoint # => 'https://aaronparecki.com/auth'
+puts endpoints.micropub               # => 'https://aaronparecki.com/micropub'
+puts endpoints.microsub               # => 'https://aperture.p3k.io/microsub/1'
+puts endpoints.redirect_uri           # => nil
+puts endpoints.token_endpoint         # => 'https://aaronparecki.com/auth/token'
+puts endpoints.webmention             # => 'https://webmention.io/aaronpk/webmention'
 ```
 
 ### Exception Handling
