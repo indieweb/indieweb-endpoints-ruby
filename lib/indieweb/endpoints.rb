@@ -9,11 +9,15 @@ require 'nokogiri'
 require 'indieweb/endpoints/version'
 require 'indieweb/endpoints/exceptions'
 
-require 'indieweb/endpoints/client'
-require 'indieweb/endpoints/http_request'
-require 'indieweb/endpoints/registerable'
+require 'indieweb/endpoints/concerns/registerable'
 
+require 'indieweb/endpoints/services/http_request_service'
+require 'indieweb/endpoints/services/response_body_parser_service'
+require 'indieweb/endpoints/services/response_headers_parser_service'
+
+require 'indieweb/endpoints/client'
 require 'indieweb/endpoints/parsers'
+
 require 'indieweb/endpoints/parsers/authorization_endpoint_parser'
 require 'indieweb/endpoints/parsers/micropub_parser'
 require 'indieweb/endpoints/parsers/microsub_parser'
@@ -23,14 +27,8 @@ require 'indieweb/endpoints/parsers/webmention_parser'
 
 module IndieWeb
   module Endpoints
-    class << self
-      def client(url)
-        Client.new(url)
-      end
-
-      def get(url)
-        client(url).endpoints
-      end
+    def self.get(url)
+      Client.new(url).endpoints
     end
   end
 end

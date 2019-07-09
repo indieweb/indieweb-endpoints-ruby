@@ -16,8 +16,12 @@ module IndieWeb
       end
 
       def response
-        @response ||= HttpRequest.get(@uri)
+        @response ||= Services::HttpRequestService.new.get(uri)
       end
+
+      private
+
+      attr_accessor :uri
     end
   end
 end
