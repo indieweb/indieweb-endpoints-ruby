@@ -16,7 +16,7 @@ module IndieWeb
 
         # https://www.w3.org/TR/webmention/#sender-discovers-receiver-webmention-endpoint
         def results_from_body
-          @results_from_body ||= results_for_node('link') + results_for_node('a')
+          @results_from_body ||= [results_for_node('link'), results_for_node('a')].flatten.compact
         end
       end
     end
