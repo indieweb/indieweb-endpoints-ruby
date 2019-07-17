@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1 / 2019-07-17
+
+- Safely combine, flatten, and compact result set (5f2d9c5)
+
 ## 1.0.0 / 2019-07-08
 
 -  Refactor gem code using service objects approach (78511d7 and 9d2fee0)
