@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2 / 2019-08-31
+
+- Update WebMock and Addressable gems (298da63)
+- Update development dependencies (5663e3a)
+
 ## 1.0.1 / 2019-07-17
 
 - Safely combine, flatten, and compact result set (5f2d9c5)
