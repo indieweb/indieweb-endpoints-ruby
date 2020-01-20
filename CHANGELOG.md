@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0 / 2020-01-20
+
+- Expand supported Ruby versions to include 2.7 (ae63ed0)
+
 ## 1.0.2 / 2019-08-31
 
 - Update WebMock and Addressable gems (298da63)
