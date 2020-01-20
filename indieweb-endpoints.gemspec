@@ -26,18 +26,18 @@ Gem::Specification.new do |spec|
   }
 
   spec.add_development_dependency 'rake', '~> 13.0'
-  spec.add_development_dependency 'reek', '~> 5.4'
-  spec.add_development_dependency 'rspec', '~> 3.8'
-  spec.add_development_dependency 'rubocop', '~> 0.75.0'
+  spec.add_development_dependency 'reek', '~> 5.6'
+  spec.add_development_dependency 'rspec', '~> 3.9'
+  spec.add_development_dependency 'rubocop', '~> 0.79.0'
   spec.add_development_dependency 'rubocop-performance', '~> 1.5'
-  spec.add_development_dependency 'rubocop-rspec', '~> 1.35'
+  spec.add_development_dependency 'rubocop-rspec', '~> 1.37'
   spec.add_development_dependency 'simplecov', '~> 0.17.1'
-  spec.add_development_dependency 'simplecov-console', '~> 0.5.0'
-  spec.add_development_dependency 'webmock', '~> 3.7'
+  spec.add_development_dependency 'simplecov-console', '~> 0.6.0'
+  spec.add_development_dependency 'webmock', '~> 3.8'
 
-  spec.add_runtime_dependency 'absolutely', '~> 3.0'
+  spec.add_runtime_dependency 'absolutely', '~> 3.1'
   spec.add_runtime_dependency 'addressable', '~> 2.7'
   spec.add_runtime_dependency 'http', '~> 5.0.0.pre'
-  spec.add_runtime_dependency 'link-header-parser', '~> 0.2.0'
+  spec.add_runtime_dependency 'link-header-parser', '~> 0.3.0'
   spec.add_runtime_dependency 'nokogiri', '~> 1.10'
 end
