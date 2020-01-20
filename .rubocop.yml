@@ -2,16 +2,16 @@ require:
   - rubocop-performance
   - rubocop-rspec
 
-Layout/AlignHash:
+Layout/HashAlignment:
   EnforcedHashRocketStyle: table
+
+Layout/LineLength:
+  Enabled: false
 
 Metrics/BlockLength:
   Exclude:
     - indieweb-endpoints.gemspec
     - spec/**/*.rb
-
-Metrics/LineLength:
-  Enabled: false
 
 Naming/RescuedExceptionsVariableName:
   PreferredName: exception
