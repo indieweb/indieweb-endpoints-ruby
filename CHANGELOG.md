@@ -3,6 +3,7 @@
 ## 1.1.0 / 2020-01-20
 
 - Expand supported Ruby versions to include 2.7 (ae63ed0)
+- Update project Ruby version to 2.4.9 (e576ad6)
 
 ## 1.0.2 / 2019-08-31
 
