@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.0 / 2020-01-25
+
+- Downgrade HTTP gem version constraint to ~> 4.3 (cb63230)
+
 ## 1.1.0 / 2020-01-20
 
 - Expand supported Ruby versions to include 2.7 (ae63ed0)
