@@ -11,7 +11,7 @@ module IndieWeb
         private
 
         def results_for_node(node)
-          Services::ResponseBodyParserService.new.parse(response, self.class.identifier, node)
+          Services::ResponseBodyParserService.parse(response, self.class.identifier, node)
         end
 
         # https://www.w3.org/TR/webmention/#sender-discovers-receiver-webmention-endpoint

@@ -25,11 +25,11 @@ module IndieWeb
         end
 
         def results_from_body
-          @results_from_body ||= Services::ResponseBodyParserService.new.parse(response, self.class.identifier)
+          @results_from_body ||= Services::ResponseBodyParserService.parse(response, self.class.identifier)
         end
 
         def results_from_headers
-          @results_from_headers ||= Services::ResponseHeadersParserService.new.parse(response, self.class.identifier)
+          @results_from_headers ||= Services::ResponseHeadersParserService.parse(response, self.class.identifier)
         end
 
         def results_from_http_request

@@ -2,7 +2,7 @@ module IndieWeb
   module Endpoints
     module Services
       class ResponseBodyParserService
-        def parse(response, identifier, node = 'link')
+        def self.parse(response, identifier, node = 'link')
           return unless response.mime_type == 'text/html'
 
           # Reject endpoints that contain a fragment identifier

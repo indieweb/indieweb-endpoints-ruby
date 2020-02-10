@@ -18,10 +18,6 @@ module IndieWeb
           }
         }.freeze
 
-        def initialize
-          @client = HTTP::Client.new(HTTP_CLIENT_OPTS)
-        end
-
         def get(uri)
           client.request(:get, uri)
         rescue HTTP::ConnectionError,
@@ -30,9 +26,15 @@ module IndieWeb
           raise IndieWeb::Endpoints.const_get(exception.class.name.split('::').last), exception
         end
 
+        def self.get(uri)
+          new.get(uri)
+        end
+
         private
 
-        attr_accessor :client
+        def client
+          @client ||= HTTP::Client.new(HTTP_CLIENT_OPTS)
+        end
       end
     end
   end

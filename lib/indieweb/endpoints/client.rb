@@ -16,7 +16,7 @@ module IndieWeb
       end
 
       def response
-        @response ||= Services::HttpRequestService.new.get(uri)
+        @response ||= Services::HttpRequestService.get(uri)
       end
 
       private

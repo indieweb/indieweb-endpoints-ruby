@@ -2,7 +2,7 @@ module IndieWeb
   module Endpoints
     module Services
       class ResponseHeadersParserService
-        def parse(response, identifier)
+        def self.parse(response, identifier)
           headers = LinkHeaderParser.parse(response.headers.get('link'), base: response.uri.to_s).by_relation_type[identifier]
 
           return unless headers
