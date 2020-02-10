@@ -2,9 +2,7 @@ module IndieWeb
   module Endpoints
     module Parsers
       class WebmentionParser < BaseParser
-        def self.identifier
-          :webmention
-        end
+        @identifier = :webmention
 
         Parsers.register(self)
 

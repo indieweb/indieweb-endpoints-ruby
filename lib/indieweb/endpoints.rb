@@ -9,8 +9,6 @@ require 'nokogiri'
 require 'indieweb/endpoints/version'
 require 'indieweb/endpoints/exceptions'
 
-require 'indieweb/endpoints/concerns/registerable'
-
 require 'indieweb/endpoints/services/http_request_service'
 require 'indieweb/endpoints/services/response_body_parser_service'
 require 'indieweb/endpoints/services/response_headers_parser_service'
@@ -18,6 +16,7 @@ require 'indieweb/endpoints/services/response_headers_parser_service'
 require 'indieweb/endpoints/client'
 require 'indieweb/endpoints/parsers'
 
+require 'indieweb/endpoints/parsers/base_parser'
 require 'indieweb/endpoints/parsers/authorization_endpoint_parser'
 require 'indieweb/endpoints/parsers/micropub_parser'
 require 'indieweb/endpoints/parsers/microsub_parser'

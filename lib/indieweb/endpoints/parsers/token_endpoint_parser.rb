@@ -2,9 +2,7 @@ module IndieWeb
   module Endpoints
     module Parsers
       class TokenEndpointParser < BaseParser
-        def self.identifier
-          :token_endpoint
-        end
+        @identifier = :token_endpoint
 
         Parsers.register(self)
       end

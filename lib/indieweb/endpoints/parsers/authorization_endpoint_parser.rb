@@ -2,9 +2,7 @@ module IndieWeb
   module Endpoints
     module Parsers
       class AuthorizationEndpointParser < BaseParser
-        def self.identifier
-          :authorization_endpoint
-        end
+        @identifier = :authorization_endpoint
 
         Parsers.register(self)
       end

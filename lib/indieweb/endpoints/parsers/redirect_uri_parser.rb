@@ -2,9 +2,7 @@ module IndieWeb
   module Endpoints
     module Parsers
       class RedirectUriParser < BaseParser
-        def self.identifier
-          :redirect_uri
-        end
+        @identifier = :redirect_uri
 
         Parsers.register(self)
 
