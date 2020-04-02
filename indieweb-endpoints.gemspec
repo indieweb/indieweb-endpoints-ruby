@@ -26,18 +26,18 @@ Gem::Specification.new do |spec|
   }
 
   spec.add_development_dependency 'rake', '~> 13.0'
-  spec.add_development_dependency 'reek', '~> 5.6'
+  spec.add_development_dependency 'reek', '~> 6.0'
   spec.add_development_dependency 'rspec', '~> 3.9'
-  spec.add_development_dependency 'rubocop', '~> 0.80.0'
+  spec.add_development_dependency 'rubocop', '~> 0.81.0'
   spec.add_development_dependency 'rubocop-performance', '~> 1.5'
   spec.add_development_dependency 'rubocop-rspec', '~> 1.38'
-  spec.add_development_dependency 'simplecov', '~> 0.18.2'
-  spec.add_development_dependency 'simplecov-console', '~> 0.6.0'
+  spec.add_development_dependency 'simplecov', '~> 0.18.5'
+  spec.add_development_dependency 'simplecov-console', '~> 0.7.2'
   spec.add_development_dependency 'webmock', '~> 3.8'
 
   spec.add_runtime_dependency 'absolutely', '~> 3.1'
   spec.add_runtime_dependency 'addressable', '~> 2.7'
-  spec.add_runtime_dependency 'http', '~> 4.3'
+  spec.add_runtime_dependency 'http', '~> 4.4'
   spec.add_runtime_dependency 'link-header-parser', '~> 0.3.0'
   spec.add_runtime_dependency 'nokogiri', '~> 1.10'
 end
