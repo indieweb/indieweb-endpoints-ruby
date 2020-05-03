@@ -12,7 +12,8 @@ describe IndieWeb::Endpoints, :get do
       microsub: nil,
       redirect_uri: nil,
       token_endpoint: nil,
-      webmention: nil
+      webmention: nil,
+      pingback: nil
     )
   end
 

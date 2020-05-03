@@ -23,6 +23,7 @@ require 'indieweb/endpoints/parsers/microsub_parser'
 require 'indieweb/endpoints/parsers/redirect_uri_parser'
 require 'indieweb/endpoints/parsers/token_endpoint_parser'
 require 'indieweb/endpoints/parsers/webmention_parser'
+require 'indieweb/endpoints/parsers/pingback_parser'
 
 module IndieWeb
   module Endpoints
