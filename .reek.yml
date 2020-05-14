@@ -1,9 +1,6 @@
 detectors:
   IrresponsibleModule:
     enabled: false
-  UtilityFunction:
-    exclude:
-      - FixtureHelpers#read_fixture
 
 exclude_paths:
   - vendor/
