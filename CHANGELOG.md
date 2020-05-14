@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.0 / 2020-05-14
+
+- Update Absolutely and LinkHeaderParser dependencies (9e0a64a)
+- Move development dependencies to `Gemfile` (67067f3)
+- Update development Ruby version to 2.4.10 (f5430f9)
+
 ## 2.0.0 / 2020-01-25
 
 - Downgrade HTTP gem version constraint to ~> 4.3 (cb63230)
