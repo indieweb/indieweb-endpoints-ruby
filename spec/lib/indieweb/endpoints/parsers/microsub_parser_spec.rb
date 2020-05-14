@@ -1,4 +1,4 @@
-describe IndieWeb::Endpoints::Parsers::MicrosubParser do
+RSpec.describe IndieWeb::Endpoints::Parsers::MicrosubParser do
   let(:url) { 'https://example.com' }
 
   let(:endpoint) { 'https://example.com/microsub' }

@@ -1,4 +1,4 @@
-describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
+RSpec.describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
   let(:url) { 'https://example.com' }
 
   let(:endpoint) { 'https://example.com/redirect' }

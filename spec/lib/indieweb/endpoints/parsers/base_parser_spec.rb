@@ -1,4 +1,4 @@
-describe IndieWeb::Endpoints::Parsers::BaseParser do
+RSpec.describe IndieWeb::Endpoints::Parsers::BaseParser do
   context 'when not given an HTTP::Response' do
     it 'raises an ArgumentError' do
       message = 'response must be an HTTP::Response (given NilClass)'

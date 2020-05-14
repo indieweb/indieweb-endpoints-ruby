@@ -1,4 +1,4 @@
-describe IndieWeb::Endpoints::Parsers::MicropubParser do
+RSpec.describe IndieWeb::Endpoints::Parsers::MicropubParser do
   let(:url) { 'https://example.com' }
 
   let(:endpoint) { 'https://example.com/micropub' }

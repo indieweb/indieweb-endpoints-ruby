@@ -1,4 +1,4 @@
-describe IndieWeb::Endpoints, :get do
+RSpec.describe IndieWeb::Endpoints, :get do
   let(:url) { 'https://example.com' }
 
   let :http_response_headers do

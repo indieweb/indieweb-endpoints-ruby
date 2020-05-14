@@ -1,4 +1,4 @@
-describe IndieWeb::Endpoints::Client do
+RSpec.describe IndieWeb::Endpoints::Client do
   context 'when not given a String' do
     it 'raises an ArgumentError' do
       message = 'url must be a String (given NilClass)'

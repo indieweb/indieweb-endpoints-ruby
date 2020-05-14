@@ -1,4 +1,4 @@
-describe IndieWeb::Endpoints::Parsers::WebmentionParser do
+RSpec.describe IndieWeb::Endpoints::Parsers::WebmentionParser do
   let(:client) { IndieWeb::Endpoints::Client.new(url) }
 
   context 'when given a URL that does not advertise a Webmention endpoint' do

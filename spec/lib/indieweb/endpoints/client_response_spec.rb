@@ -1,4 +1,4 @@
-describe IndieWeb::Endpoints::Client, '#response' do
+RSpec.describe IndieWeb::Endpoints::Client, '#response' do
   let(:url) { 'https://example.com' }
 
   let(:client) { described_class.new(url) }

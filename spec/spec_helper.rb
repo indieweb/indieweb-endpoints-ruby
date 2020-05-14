@@ -1,5 +1,4 @@
-$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
-
+require 'bundler/setup'
 require 'simplecov'
 require 'webmock/rspec'
 
@@ -9,6 +8,8 @@ Dir.glob(File.join(Dir.pwd, 'spec', 'support', '**', '*.rb')).sort.each { |f| re
 
 RSpec.configure do |config|
   config.include FixtureHelpers
+
+  config.disable_monkey_patching!
 end
 
 WebMock.disable_net_connect!(allow: ['example.com', 'webmention.rocks'])

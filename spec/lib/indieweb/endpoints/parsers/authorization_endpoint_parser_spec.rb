@@ -1,4 +1,4 @@
-describe IndieWeb::Endpoints::Parsers::AuthorizationEndpointParser do
+RSpec.describe IndieWeb::Endpoints::Parsers::AuthorizationEndpointParser do
   let(:url) { 'https://example.com' }
 
   let(:endpoint) { 'https://example.com/authorization_endpoint' }

@@ -1,4 +1,4 @@
-describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
+RSpec.describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
   let(:url) { 'https://example.com' }
 
   let(:endpoint) { 'https://example.com/token_endpoint' }
