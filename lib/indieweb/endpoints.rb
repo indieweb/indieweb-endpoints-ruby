@@ -9,7 +9,6 @@ require 'nokogiri'
 require 'indieweb/endpoints/version'
 require 'indieweb/endpoints/exceptions'
 
-require 'indieweb/endpoints/services/http_request_service'
 require 'indieweb/endpoints/services/response_body_parser_service'
 require 'indieweb/endpoints/services/response_headers_parser_service'
 
