@@ -14,9 +14,9 @@ module IndieWeb
 
         # @param response [HTTP::Response]
         # @param identifier [Symbol]
-        # @return [Array<String>]
+        # @return [Array<String>, nil]
         def self.parse_headers(response, identifier)
-          headers = LinkHeaderParser.parse(response.headers.get('link'), base: response.uri.to_s).by_relation_type[identifier]
+          headers = LinkHeaderParser.parse(response.headers.get('link'), base: response.uri.to_s).group_by_relation_type[identifier]
 
           return unless headers
 
