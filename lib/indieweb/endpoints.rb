@@ -22,6 +22,12 @@ require 'indieweb/endpoints/parsers/webmention_parser'
 
 module IndieWeb
   module Endpoints
+    # Discover a URL's IndieAuth, Micropub, Microsub, and Webmention endpoints
+    #
+    #   IndieWeb::Endpoints.get('https://aaronparecki.com')
+    #
+    # @param url [String] an absolute URL
+    # @return [Hash{Symbol => String, Array, nil}]
     def self.get(url)
       Client.new(url).endpoints
     end
