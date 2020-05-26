@@ -19,8 +19,14 @@ module IndieWeb
         raise ArgumentError, "url (#{url}) must be an absolute URL (e.g. https://example.com)" unless uri.absolute? && uri.scheme.match?(/^https?$/)
       end
 
+      # @return [String]
+      def inspect
+        format(%(#<#{self.class.name}:%#0x url: #{url.inspect}>), object_id)
+      end
+
+      # @return [Hash{Symbol => String, Array, nil}]
       def endpoints
-        @endpoints ||= OpenStruct.new(Parsers.registered.transform_values { |parser| parser.new(response).results })
+        @endpoints ||= Parsers.registered.transform_values { |parser| parser.new(response).results }
       end
 
       # @see https://www.w3.org/TR/webmention/#limits-on-get-requests

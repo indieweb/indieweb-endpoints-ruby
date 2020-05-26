@@ -6,14 +6,14 @@ RSpec.describe IndieWeb::Endpoints, :get do
   end
 
   let(:endpoints) do
-    OpenStruct.new(
+    {
       authorization_endpoint: nil,
       micropub: nil,
       microsub: nil,
       redirect_uri: nil,
       token_endpoint: nil,
       webmention: nil
-    )
+    }
   end
 
   context 'when given a URL that does not advertise any endpoints' do
