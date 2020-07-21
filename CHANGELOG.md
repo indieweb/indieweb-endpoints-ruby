@@ -1,5 +1,14 @@
 # Changelog
 
+## 4.0.0 / 2020-07-21
+
+- **Breaking change:** Return a Hash of endpoints instead of an OpenStruct (15dc387)
+- Update [link-header-parser](https://rubygems.org/gems/link-header-parser) dependency to v2.0.0 (2255e6b)
+- **Breaking change:** Update development Ruby version to 2.5.8 and minimum Ruby version to 2.5 (dd5a142)
+- Refactor response headers/body parsers into a single class (ee02da3)
+- Refactor `IndieWeb::Endpoints::Client` and remove `HttpRequestService` (2732616)
+- Add offending url to exception message (#5) (4bf7a54)
+
 ## 3.0.0 / 2020-05-14
 
 - Update Absolutely and LinkHeaderParser dependencies (9e0a64a)
