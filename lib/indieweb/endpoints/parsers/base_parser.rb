@@ -6,12 +6,14 @@ module IndieWeb
           attr_reader :identifier
         end
 
+        # @param response [HTTP::Response]
         def initialize(response)
           raise ArgumentError, "response must be an HTTP::Response (given #{response.class.name})" unless response.is_a?(HTTP::Response)
 
           @response = response
         end
 
+        # @return [String]
         def results
           mapped_results.shift
         end

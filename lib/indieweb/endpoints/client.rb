@@ -44,7 +44,6 @@ module IndieWeb
 
       attr_accessor :url
 
-      # @return [Addressable::URI]
       def uri
         @uri ||= Addressable::URI.parse(url)
       rescue Addressable::URI::InvalidURIError => exception

@@ -6,6 +6,7 @@ module IndieWeb
 
         Parsers.register(self)
 
+        # @return [Array<String>, nil]
         def results
           return unless mapped_results.any?
 
