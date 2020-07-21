@@ -4,7 +4,7 @@
 
 [![Gem](https://img.shields.io/gem/v/indieweb-endpoints.svg?style=for-the-badge)](https://rubygems.org/gems/indieweb-endpoints)
 [![Downloads](https://img.shields.io/gem/dt/indieweb-endpoints.svg?style=for-the-badge)](https://rubygems.org/gems/indieweb-endpoints)
-[![Build](https://img.shields.io/travis/com/indieweb/indieweb-endpoints-ruby/master.svg?style=for-the-badge)](https://travis-ci.com/indieweb/indieweb-endpoints-ruby)
+[![Build](https://img.shields.io/travis/com/indieweb/indieweb-endpoints-ruby/main.svg?style=for-the-badge)](https://travis-ci.com/indieweb/indieweb-endpoints-ruby)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/indieweb/indieweb-endpoints-ruby.svg?style=for-the-badge)](https://codeclimate.com/github/indieweb/indieweb-endpoints-ruby)
 [![Coverage](https://img.shields.io/codeclimate/c/indieweb/indieweb-endpoints-ruby.svg?style=for-the-badge)](https://codeclimate.com/github/indieweb/indieweb-endpoints-ruby/code)
 
@@ -84,7 +84,7 @@ From [httprb/http](https://github.com/httprb/http):
 
 ## Contributing
 
-Interested in helping improve indieweb-endpoints-ruby? Awesome! Your help is greatly appreciated. See [CONTRIBUTING.md](https://github.com/indieweb/indieweb-endpoints-ruby/blob/master/CONTRIBUTING.md) for details.
+Interested in helping improve indieweb-endpoints-ruby? Awesome! Your help is greatly appreciated. See [CONTRIBUTING.md](https://github.com/indieweb/indieweb-endpoints-ruby/blob/main/CONTRIBUTING.md) for details.
 
 By contributing to and participating in the development of indieweb-endpoints-ruby, you acknowledge that you have read and agree to the [IndieWeb Code of Conduct](https://indieweb.org/code-of-conduct).
 
