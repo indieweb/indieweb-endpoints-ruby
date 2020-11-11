@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.0.0 / 2020-11-11
+
+- Update absolutely and link-header-parser dependencies (064696e)
+
 ## 4.0.0 / 2020-07-21
 
 - **Breaking change:** Return a Hash of endpoints instead of an OpenStruct (15dc387)
