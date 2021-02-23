@@ -23,7 +23,7 @@ RSpec.describe IndieWeb::Endpoints::Parsers::AuthorizationEndpointParser do
     # Similar to https://webmention.rocks/test/1
     context 'when the HTTP Link header references a relative URL and the `rel` parameter is unquoted' do
       before do
-        stub_request(:get, url).to_return(headers: { 'Link': '</authorization_endpoint>; rel=authorization_endpoint' })
+        stub_request(:get, url).to_return(headers: { Link: '</authorization_endpoint>; rel=authorization_endpoint' })
       end
 
       it 'returns a String' do
@@ -34,7 +34,7 @@ RSpec.describe IndieWeb::Endpoints::Parsers::AuthorizationEndpointParser do
     # Similar to https://webmention.rocks/test/2
     context 'when the HTTP Link header references an absolute URL and the `rel` parameter is unquoted' do
       before do
-        stub_request(:get, url).to_return(headers: { 'Link': %(<#{endpoint}>; rel=authorization_endpoint) })
+        stub_request(:get, url).to_return(headers: { Link: %(<#{endpoint}>; rel=authorization_endpoint) })
       end
 
       it 'returns a String' do
@@ -56,7 +56,7 @@ RSpec.describe IndieWeb::Endpoints::Parsers::AuthorizationEndpointParser do
     # Similar to https://webmention.rocks/test/8
     context 'when the `rel` parameter is quoted' do
       before do
-        stub_request(:get, url).to_return(headers: { 'Link': %(<#{endpoint}>; rel="authorization_endpoint") })
+        stub_request(:get, url).to_return(headers: { Link: %(<#{endpoint}>; rel="authorization_endpoint") })
       end
 
       it 'returns a String' do
@@ -67,7 +67,7 @@ RSpec.describe IndieWeb::Endpoints::Parsers::AuthorizationEndpointParser do
     # Similar to https://webmention.rocks/test/10
     context 'when the `rel` parameter contains multiple space-separated values' do
       before do
-        stub_request(:get, url).to_return(headers: { 'Link': %(<#{endpoint}>; rel="authorization_endpoint somethingelse") })
+        stub_request(:get, url).to_return(headers: { Link: %(<#{endpoint}>; rel="authorization_endpoint somethingelse") })
       end
 
       it 'returns a String' do
@@ -78,7 +78,7 @@ RSpec.describe IndieWeb::Endpoints::Parsers::AuthorizationEndpointParser do
     # Similar to https://webmention.rocks/test/18
     context 'when the response includes multiple HTTP Link headers' do
       before do
-        stub_request(:get, url).to_return(headers: { 'Link': [%(<#{endpoint}#error>; rel="authorization_endpoint"), %(</authorization_endpoint/error>; rel="authorization_endpoint_error"), %(<#{endpoint}>; rel="authorization_endpoint"), '</authorization_endpoint/error>; rel="other"'] })
+        stub_request(:get, url).to_return(headers: { Link: [%(<#{endpoint}#error>; rel="authorization_endpoint"), %(</authorization_endpoint/error>; rel="authorization_endpoint_error"), %(<#{endpoint}>; rel="authorization_endpoint"), '</authorization_endpoint/error>; rel="other"'] })
       end
 
       it 'returns a String' do
@@ -89,7 +89,7 @@ RSpec.describe IndieWeb::Endpoints::Parsers::AuthorizationEndpointParser do
     # Similar to https://webmention.rocks/test/19
     context 'when the HTTP Link header contains multiple comma-separated values' do
       before do
-        stub_request(:get, url).to_return(headers: { 'Link': %(</authorization_endpoint/error>; rel="other", <#{endpoint}>; rel="authorization_endpoint") })
+        stub_request(:get, url).to_return(headers: { Link: %(</authorization_endpoint/error>; rel="other", <#{endpoint}>; rel="authorization_endpoint") })
       end
 
       it 'returns a String' do
@@ -104,9 +104,9 @@ RSpec.describe IndieWeb::Endpoints::Parsers::AuthorizationEndpointParser do
       let(:endpoint) { 'https://example.com/page/authorization_endpoint/endpoint' }
 
       before do
-        stub_request(:get, url).to_return(headers: { 'Location': 'page/authorization_endpoint' }, status: 302)
+        stub_request(:get, url).to_return(headers: { Location: 'page/authorization_endpoint' }, status: 302)
 
-        stub_request(:get, "#{url}/authorization_endpoint").to_return(headers: http_response_headers.merge('Link': "<#{endpoint}>; rel=authorization_endpoint"))
+        stub_request(:get, "#{url}/authorization_endpoint").to_return(headers: http_response_headers.merge(Link: "<#{endpoint}>; rel=authorization_endpoint"))
       end
 
       it 'returns a String' do
@@ -269,7 +269,7 @@ RSpec.describe IndieWeb::Endpoints::Parsers::AuthorizationEndpointParser do
     let(:url) { 'https://example.com/multiple_endpoints' }
 
     before do
-      stub_request(:get, url).to_return(headers: http_response_headers.merge('Link': %(<#{endpoint}>; rel="authorization_endpoint")), body: read_fixture(url))
+      stub_request(:get, url).to_return(headers: http_response_headers.merge(Link: %(<#{endpoint}>; rel="authorization_endpoint")), body: read_fixture(url))
     end
 
     it 'returns a String' do

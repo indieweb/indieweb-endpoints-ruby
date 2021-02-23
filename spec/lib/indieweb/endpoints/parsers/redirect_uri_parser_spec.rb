@@ -24,7 +24,7 @@ RSpec.describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
   context 'when given a URL advertising callback URLs in an HTTP Link header' do
     context 'when the HTTP Link header references a relative URL and the `rel` parameter is unquoted' do
       before do
-        stub_request(:get, url).to_return(headers: { 'Link': '</redirect>; rel=redirect_uri' })
+        stub_request(:get, url).to_return(headers: { Link: '</redirect>; rel=redirect_uri' })
       end
 
       it 'returns an Array' do
@@ -34,7 +34,7 @@ RSpec.describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
 
     context 'when the HTTP Link header references an absolute URL and the `rel` parameter is unquoted' do
       before do
-        stub_request(:get, url).to_return(headers: { 'Link': %(<#{endpoint}>; rel=redirect_uri) })
+        stub_request(:get, url).to_return(headers: { Link: %(<#{endpoint}>; rel=redirect_uri) })
       end
 
       it 'returns an Array' do
@@ -54,7 +54,7 @@ RSpec.describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
 
     context 'when the `rel` parameter is quoted' do
       before do
-        stub_request(:get, url).to_return(headers: { 'Link': %(<#{endpoint}>; rel="redirect_uri") })
+        stub_request(:get, url).to_return(headers: { Link: %(<#{endpoint}>; rel="redirect_uri") })
       end
 
       it 'returns an Array' do
@@ -64,7 +64,7 @@ RSpec.describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
 
     context 'when the `rel` parameter contains multiple space-separated values' do
       before do
-        stub_request(:get, url).to_return(headers: { 'Link': %(<#{endpoint}>; rel="redirect_uri somethingelse") })
+        stub_request(:get, url).to_return(headers: { Link: %(<#{endpoint}>; rel="redirect_uri somethingelse") })
       end
 
       it 'returns an Array' do
@@ -76,7 +76,7 @@ RSpec.describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
       let(:endpoints) { ['https://example.com/callback', 'https://example.com/redirect'] }
 
       before do
-        stub_request(:get, url).to_return(headers: { 'Link': [%(<#{endpoint}#error>; rel="redirect_uri"), %(</redirect_uri/error>; rel="redirect_uri_error"), %(<#{endpoint}>; rel="redirect_uri"), '</callback>; rel="redirect_uri"'] })
+        stub_request(:get, url).to_return(headers: { Link: [%(<#{endpoint}#error>; rel="redirect_uri"), %(</redirect_uri/error>; rel="redirect_uri_error"), %(<#{endpoint}>; rel="redirect_uri"), '</callback>; rel="redirect_uri"'] })
       end
 
       it 'returns an Array' do
@@ -86,7 +86,7 @@ RSpec.describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
 
     context 'when the HTTP Link header contains multiple comma-separated values' do
       before do
-        stub_request(:get, url).to_return(headers: { 'Link': %(</redirect_uri/error>; rel="other", <#{endpoint}>; rel="redirect_uri") })
+        stub_request(:get, url).to_return(headers: { Link: %(</redirect_uri/error>; rel="other", <#{endpoint}>; rel="redirect_uri") })
       end
 
       it 'returns an Array' do
@@ -100,9 +100,9 @@ RSpec.describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
       let(:endpoint) { 'https://example.com/page/redirect_uri/endpoint' }
 
       before do
-        stub_request(:get, url).to_return(headers: { 'Location': 'page/redirect_uri' }, status: 302)
+        stub_request(:get, url).to_return(headers: { Location: 'page/redirect_uri' }, status: 302)
 
-        stub_request(:get, "#{url}/redirect_uri").to_return(headers: http_response_headers.merge('Link': "<#{endpoint}>; rel=redirect_uri"))
+        stub_request(:get, "#{url}/redirect_uri").to_return(headers: http_response_headers.merge(Link: "<#{endpoint}>; rel=redirect_uri"))
       end
 
       it 'returns an Array' do
@@ -257,7 +257,7 @@ RSpec.describe IndieWeb::Endpoints::Parsers::RedirectUriParser do
     let(:endpoints) { ['https://example.com/callback', 'https://example.com/redirect'] }
 
     before do
-      stub_request(:get, url).to_return(headers: http_response_headers.merge('Link': %(</redirect>; rel="redirect_uri")), body: read_fixture(url))
+      stub_request(:get, url).to_return(headers: http_response_headers.merge(Link: %(</redirect>; rel="redirect_uri")), body: read_fixture(url))
     end
 
     it 'returns an Array' do
