@@ -13,7 +13,9 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/indieweb/indieweb-endpoints-ruby'
   spec.license       = 'MIT'
 
-  spec.files         = Dir['lib/**/*', '*.md', '*.gemspec'].reject { |f| File.directory?(f) }
+  spec.files         = Dir['lib/**/*'].reject { |f| File.directory?(f) }
+  spec.files        += %w[LICENSE CHANGELOG.md CODE_OF_CONDUCT.md CONTRIBUTING.md README.md]
+  spec.files        += %w[indieweb-endpoints.gemspec]
 
   spec.require_paths = ['lib']
 
