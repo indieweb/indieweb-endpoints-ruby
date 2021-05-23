@@ -72,7 +72,7 @@ client.endpoints
 
 There are several exceptions that may be raised by indieweb-endpoints-ruby's underlying dependencies. These errors are raised as subclasses of `IndieWebEndpointsError` (which itself is a subclass of `StandardError`).
 
-From [jgarber623/absolutely](https://github.com/jgarber623/absolutely) and  [sporkmonger/addressable](https://github.com/sporkmonger/addressable):
+From [sporkmonger/addressable](https://github.com/sporkmonger/addressable):
 
 - `IndieWeb::Endpoints::InvalidURIError`
 

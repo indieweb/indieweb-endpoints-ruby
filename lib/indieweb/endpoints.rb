@@ -1,4 +1,3 @@
-require 'absolutely'
 require 'addressable/uri'
 require 'http'
 require 'link-header-parser'

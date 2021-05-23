@@ -23,8 +23,8 @@ module IndieWeb
         attr_reader :response
 
         def mapped_results
-          @mapped_results ||= results_from_http_request.map { |endpoint| Absolutely.to_abs(base: response.uri.to_s, relative: endpoint) }.uniq.sort
-        rescue Absolutely::InvalidURIError => exception
+          @mapped_results ||= results_from_http_request.map { |endpoint| Addressable::URI.join(response.uri, endpoint).to_s }.uniq.sort
+        rescue Addressable::URI::InvalidURIError => exception
           raise InvalidURIError, exception
         end
 
