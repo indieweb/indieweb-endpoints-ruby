@@ -8,7 +8,7 @@ module IndieWeb
 
         # @return [Array<String>, nil]
         def results
-          return unless mapped_results.any?
+          return if mapped_results.none?
 
           mapped_results
         end

@@ -37,7 +37,7 @@ module IndieWeb
         end
 
         def results_from_body
-          return unless response.mime_type == 'text/html'
+          return if response.mime_type != 'text/html'
 
           Services::ResponseParserService.parse_body(parsed_response_body, self.class.identifier)
         end
@@ -45,7 +45,7 @@ module IndieWeb
         def results_from_headers
           return if parsed_response_headers.none?
 
-          Services::ResponseParserService.parse_headers(parsed_response_headers, self.class.identifier)
+          Services::ResponseParserService.parse_headers(parsed_response_headers.group_by_relation_type, self.class.identifier)
         end
 
         def results_from_http_request
