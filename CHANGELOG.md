@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.0.0 / 2021-05-25
+
+- Refactor parsers (e22e0af)
+- Simplify exception handling (65361ee)
+- Update http dependency to 5.0 (44f2d23)
+- **Breaking change:** Favor Addressable::URI.join over Absolutely (0bc5049)
+- Update development Ruby version to 2.5.9 (3439cce)
+
 ## 5.0.0 / 2020-11-11
 
 - Update absolutely and link-header-parser dependencies (064696e)
