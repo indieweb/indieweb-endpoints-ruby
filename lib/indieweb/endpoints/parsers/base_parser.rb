@@ -28,12 +28,24 @@ module IndieWeb
           raise InvalidURIError, exception
         end
 
+        def parsed_response_body
+          @parsed_response_body ||= Nokogiri::HTML(response.body.to_s)
+        end
+
+        def parsed_response_headers
+          @parsed_response_headers ||= LinkHeaderParser.parse(response.headers.get('link'), base: response.uri)
+        end
+
         def results_from_body
-          @results_from_body ||= Services::ResponseParserService.parse_body(response, self.class.identifier)
+          return unless response.mime_type == 'text/html'
+
+          Services::ResponseParserService.parse_body(parsed_response_body, self.class.identifier)
         end
 
         def results_from_headers
-          @results_from_headers ||= Services::ResponseParserService.parse_headers(response, self.class.identifier)
+          return if parsed_response_headers.none?
+
+          Services::ResponseParserService.parse_headers(parsed_response_headers, self.class.identifier)
         end
 
         def results_from_http_request
