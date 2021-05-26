@@ -70,7 +70,7 @@ client.endpoints
 
 ### Exception Handling
 
-There are several exceptions that may be raised by indieweb-endpoints-ruby's underlying dependencies. These errors are raised as subclasses of `IndieWebEndpointsError` (which itself is a subclass of `StandardError`).
+There are several exceptions that may be raised by indieweb-endpoints-ruby's underlying dependencies. These errors are raised as subclasses of `IndieWeb::Endpoints::Error` (which itself is a subclass of `StandardError`).
 
 From [sporkmonger/addressable](https://github.com/sporkmonger/addressable):
 
@@ -78,9 +78,7 @@ From [sporkmonger/addressable](https://github.com/sporkmonger/addressable):
 
 From [httprb/http](https://github.com/httprb/http):
 
-- `IndieWeb::Endpoints::ConnectionError`
-- `IndieWeb::Endpoints::TimeoutError`
-- `IndieWeb::Endpoints::TooManyRedirectsError`
+- `IndieWeb::Endpoints::HttpError`
 
 ## Contributing
 

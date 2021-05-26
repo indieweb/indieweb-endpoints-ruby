@@ -1,15 +1,11 @@
 module IndieWeb
   module Endpoints
-    class IndieWebEndpointsError < StandardError; end
+    class Error < StandardError; end
 
-    class ArgumentError < IndieWebEndpointsError; end
+    class ArgumentError < Error; end
 
-    class ConnectionError < IndieWebEndpointsError; end
+    class HttpError < Error; end
 
-    class InvalidURIError < IndieWebEndpointsError; end
-
-    class TimeoutError < IndieWebEndpointsError; end
-
-    class TooManyRedirectsError < IndieWebEndpointsError; end
+    class InvalidURIError < Error; end
   end
 end

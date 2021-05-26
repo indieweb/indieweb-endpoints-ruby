@@ -12,11 +12,7 @@ module IndieWeb
       #
       # @param url [String] an absolute URL
       def initialize(url)
-        raise ArgumentError, "url must be a String (given #{url.class})" unless url.is_a?(String)
-
-        @url = url
-
-        raise ArgumentError, "url (#{url}) must be an absolute URL (e.g. https://example.com)" unless uri.absolute? && uri.scheme.match?(/^https?$/)
+        @url = url.to_str
       end
 
       # @return [String]
@@ -34,10 +30,8 @@ module IndieWeb
       # @return [HTTP::Response]
       def response
         @response ||= HTTP.follow(max_hops: 20).headers(HTTP_HEADERS_OPTS).timeout(connect: 5, read: 5).get(uri)
-      rescue HTTP::ConnectionError,
-             HTTP::TimeoutError,
-             HTTP::Redirector::TooManyRedirectsError => exception
-        raise IndieWeb::Endpoints.const_get(exception.class.name.split('::').last), exception
+      rescue HTTP::Error => exception
+        raise HttpError, exception
       end
 
       private
