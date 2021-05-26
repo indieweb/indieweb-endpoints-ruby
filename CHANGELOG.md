@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.1.0 / 2021-05-25
+
+- Add support for Ruby 3.0 (3394252)
+
 ## 6.0.0 / 2021-05-25
 
 - Refactor parsers (e22e0af)
