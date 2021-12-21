@@ -19,8 +19,11 @@ Gem::Specification.new do |spec|
 
   spec.require_paths = ['lib']
 
-  spec.metadata['bug_tracker_uri'] = "#{spec.homepage}/issues"
-  spec.metadata['changelog_uri']   = "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md"
+  spec.metadata = {
+    'bug_tracker_uri' => "#{spec.homepage}/issues",
+    'changelog_uri' => "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md",
+    'rubygems_mfa_required' => 'true'
+  }
 
   spec.add_runtime_dependency 'addressable', '~> 2.7'
   spec.add_runtime_dependency 'http', '~> 5.0'
