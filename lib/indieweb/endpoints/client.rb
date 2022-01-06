@@ -32,8 +32,8 @@ module IndieWeb
       # @return [HTTP::Response]
       def response
         @response ||= HTTP.follow(max_hops: 20).headers(HTTP_HEADERS_OPTS).timeout(connect: 5, read: 5).get(uri)
-      rescue HTTP::Error => exception
-        raise HttpError, exception
+      rescue HTTP::Error => e
+        raise HttpError, e
       end
 
       private
@@ -42,8 +42,8 @@ module IndieWeb
 
       def uri
         @uri ||= Addressable::URI.parse(url)
-      rescue Addressable::URI::InvalidURIError => exception
-        raise InvalidURIError, exception
+      rescue Addressable::URI::InvalidURIError => e
+        raise InvalidURIError, e
       end
     end
   end

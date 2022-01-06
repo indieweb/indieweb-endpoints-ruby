@@ -26,8 +26,8 @@ module IndieWeb
 
         def mapped_results
           @mapped_results ||= results_from_http_request.map { |endpoint| Addressable::URI.join(response.uri, endpoint).to_s }.uniq.sort
-        rescue Addressable::URI::InvalidURIError => exception
-          raise InvalidURIError, exception
+        rescue Addressable::URI::InvalidURIError => e
+          raise InvalidURIError, e
         end
 
         def parsed_response_body
