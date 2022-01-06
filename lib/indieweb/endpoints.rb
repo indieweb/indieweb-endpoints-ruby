@@ -3,21 +3,21 @@ require 'http'
 require 'link-header-parser'
 require 'nokogiri'
 
-require 'indieweb/endpoints/version'
-require 'indieweb/endpoints/exceptions'
+require_relative 'endpoints/version'
+require_relative 'endpoints/exceptions'
 
-require 'indieweb/endpoints/services/response_parser_service'
+require_relative 'endpoints/services/response_parser_service'
 
-require 'indieweb/endpoints/client'
-require 'indieweb/endpoints/parsers'
+require_relative 'endpoints/client'
+require_relative 'endpoints/parsers'
 
-require 'indieweb/endpoints/parsers/base_parser'
-require 'indieweb/endpoints/parsers/authorization_endpoint_parser'
-require 'indieweb/endpoints/parsers/micropub_parser'
-require 'indieweb/endpoints/parsers/microsub_parser'
-require 'indieweb/endpoints/parsers/redirect_uri_parser'
-require 'indieweb/endpoints/parsers/token_endpoint_parser'
-require 'indieweb/endpoints/parsers/webmention_parser'
+require_relative 'endpoints/parsers/base_parser'
+require_relative 'endpoints/parsers/authorization_endpoint_parser'
+require_relative 'endpoints/parsers/micropub_parser'
+require_relative 'endpoints/parsers/microsub_parser'
+require_relative 'endpoints/parsers/redirect_uri_parser'
+require_relative 'endpoints/parsers/token_endpoint_parser'
+require_relative 'endpoints/parsers/webmention_parser'
 
 module IndieWeb
   module Endpoints
