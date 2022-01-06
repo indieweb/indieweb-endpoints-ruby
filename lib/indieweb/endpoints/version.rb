@@ -2,6 +2,6 @@
 
 module IndieWeb
   module Endpoints
-    VERSION = '6.1.0'.freeze
+    VERSION = '6.1.0'
   end
 end
