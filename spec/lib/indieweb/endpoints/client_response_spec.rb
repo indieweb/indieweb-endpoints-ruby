@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe IndieWeb::Endpoints::Client, '#response' do
   let(:url) { 'https://example.com' }
 

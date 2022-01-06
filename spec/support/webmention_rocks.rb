@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module WebmentionRocks
   ENDPOINT_DISCOVERY_TESTS = [
     ['https://webmention.rocks/test/1',       %r{^https://webmention.rocks/test/1/webmention$}],

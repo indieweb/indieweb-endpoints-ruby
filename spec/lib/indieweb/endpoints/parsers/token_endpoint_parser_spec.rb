@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe IndieWeb::Endpoints::Parsers::TokenEndpointParser do
   let(:url) { 'https://example.com' }
 

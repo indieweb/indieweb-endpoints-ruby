@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FixtureHelpers
   def read_fixture(url)
     file_name = "#{url.gsub(%r{^https?://}, '').gsub(%r{[/.]}, '_')}.html"

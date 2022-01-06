@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe IndieWeb::Endpoints::Parsers::WebmentionParser do
   let(:client) { IndieWeb::Endpoints::Client.new(url) }
 
