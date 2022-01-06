@@ -1,2 +1,6 @@
 inherit_from:
   - https://raw.githubusercontent.com/jgarber623/rubocop-configs/main/.rubocop.gem.yml
+
+RSpec/FilePath:
+  CustomTransform:
+    IndieWeb: indieweb
