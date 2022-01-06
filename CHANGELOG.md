@@ -1,5 +1,12 @@
 # Changelog
 
+## 7.0.0 / 2022-01-06
+
+- Update runtime dependency versions (5c9430f)
+- **Breaking change:** Update development Ruby version to 2.6.9 and minimum Ruby version to 2.6 (ed17ab1 and 7e4a621)
+- Migrate to GitHub Actions from Travis CI (c019756)
+- Add `rubygems_mfa_required` to gemspec metadata (1f0a40f)
+
 ## 6.1.0 / 2021-05-25
 
 - Add support for Ruby 3.0 (3394252)
