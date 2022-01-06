@@ -19,7 +19,7 @@ module IndieWeb
 
       # @return [String]
       def inspect
-        format(%(#<#{self.class.name}:%#0x url: #{url.inspect}>), object_id)
+        "#<#{self.class.name}:#{format('%#0x', object_id)} url: #{url.inspect}>"
       end
 
       # @return [Hash{Symbol => String, Array, nil}]
