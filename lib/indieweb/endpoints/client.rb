@@ -12,39 +12,43 @@ module IndieWeb
       #
       #   client = IndieWeb::Endpoints::Client.new('https://aaronparecki.com')
       #
-      # @param url [String] an absolute URL
+      # @param url [String, HTTP::URI, #to_s] an absolute URL
+      # @raise [IndieWeb::Endpoints::InvalidURIError]
       def initialize(url)
-        @url = url.to_str
+        @uri = HTTP::URI.parse(url.to_s)
+      rescue Addressable::URI::InvalidURIError => e
+        raise InvalidURIError, e
       end
 
       # @return [String]
       def inspect
-        "#<#{self.class.name}:#{format('%#0x', object_id)} url: #{url.inspect}>"
+        %(#<#{self.class.name}:#{format('%#0x', object_id)} uri: "#{uri}">)
       end
 
+      # A Hash of the discovered IndieWeb endpoints from the provided URL
+      #
       # @return [Hash{Symbol => String, Array, nil}]
       def endpoints
-        @endpoints ||= Parsers.registered.transform_values { |parser| parser.new(response).results }
+        @endpoints ||= Parser.new(response).results
       end
 
-      # @see https://www.w3.org/TR/webmention/#limits-on-get-requests
+      # The HTTP::Response object returned by the provided URL
       #
       # @return [HTTP::Response]
+      # @raise [IndieWeb::Endpoints::HttpError]
       def response
-        @response ||= HTTP.follow(max_hops: 20).headers(HTTP_HEADERS_OPTS).timeout(connect: 5, read: 5).get(uri)
+        @response ||= HTTP.follow(max_hops: 20)
+                          .headers(HTTP_HEADERS_OPTS)
+                          .timeout(connect: 5, read: 5)
+                          .get(uri)
       rescue HTTP::Error => e
         raise HttpError, e
       end
 
       private
 
-      attr_accessor :url
-
-      def uri
-        @uri ||= Addressable::URI.parse(url)
-      rescue Addressable::URI::InvalidURIError => e
-        raise InvalidURIError, e
-      end
+      # @return [HTTP::URI]
+      attr_reader :uri
     end
   end
 end
