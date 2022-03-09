@@ -1,5 +1,11 @@
 # Changelog
 
+## 7.1.0 / 2022-03-08
+
+- Refactor gem code (eba8115)
+- Refactor specs (5b92119)
+- Rescue from `OpenSSL::SSL::SSLError` (4ea38e5)
+
 ## 7.0.0 / 2022-01-06
 
 - Update runtime dependency versions (5c9430f)
