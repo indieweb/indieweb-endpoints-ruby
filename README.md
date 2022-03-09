@@ -59,7 +59,7 @@ Should the need arise, you may work with the `IndieWeb::Endpoints::Client` class
 require 'indieweb/endpoints'
 
 client = IndieWeb::Endpoints::Client.new('https://aaronparecki.com')
-#=> #<IndieWeb::Endpoints::Client url: "https://aaronparecki.com">
+#=> #<IndieWeb::Endpoints::Client uri: "https://aaronparecki.com">
 
 client.response
 #=> #<HTTP::Response/1.1 200 OK {…}>
