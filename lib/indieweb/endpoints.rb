@@ -16,6 +16,7 @@ module IndieWeb
     class Error < StandardError; end
     class HttpError < Error; end
     class InvalidURIError < Error; end
+    class SSLError < Error; end
 
     # Discover a URL's IndieAuth, Micropub, Microsub, and Webmention endpoints
     #

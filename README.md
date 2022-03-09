@@ -80,6 +80,10 @@ From [httprb/http](https://github.com/httprb/http):
 
 - `IndieWeb::Endpoints::HttpError`
 
+From the Ruby Standard Library's [`OpenSSL::SSL::SSLError`](https://ruby-doc.org/stdlib-2.6.9/libdoc/openssl/rdoc/OpenSSL/SSL/SSLError.html):
+
+- `IndieWeb::Endpoints::SSLError`
+
 ## Contributing
 
 Interested in helping improve indieweb-endpoints-ruby? Awesome! Your help is greatly appreciated. See [CONTRIBUTING.md](https://github.com/indieweb/indieweb-endpoints-ruby/blob/main/CONTRIBUTING.md) for details.

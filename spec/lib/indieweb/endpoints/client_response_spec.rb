@@ -12,4 +12,12 @@ RSpec.describe IndieWeb::Endpoints::Client, '#response' do
       expect { response }.to raise_error(IndieWeb::Endpoints::HttpError)
     end
   end
+
+  context 'when rescuing from an OpenSSL::SSL::SSLError' do
+    it 'raises an IndieWeb::Endpoints::SSLError' do
+      stub_request(:get, url).to_raise(OpenSSL::SSL::SSLError)
+
+      expect { response }.to raise_error(IndieWeb::Endpoints::SSLError)
+    end
+  end
 end

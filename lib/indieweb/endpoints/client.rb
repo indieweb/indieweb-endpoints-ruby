@@ -43,6 +43,8 @@ module IndieWeb
                           .get(uri)
       rescue HTTP::Error => e
         raise HttpError, e
+      rescue OpenSSL::SSL::SSLError => e
+        raise SSLError, e
       end
 
       private
