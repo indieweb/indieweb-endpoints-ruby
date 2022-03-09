@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
 RSpec.describe IndieWeb::Endpoints::Client do
-  context 'when not given a String-like object' do
-    it 'raises a NoMethodError' do
-      expect { described_class.new(nil) }.to raise_error(NoMethodError)
+  subject(:client) { described_class.new(url) }
+
+  context 'when given invalid arguments' do
+    let(:url) { '1:' }
+
+    it 'raises an IndieWeb::Endpoints::InvalidURIError' do
+      expect { client }.to raise_error(IndieWeb::Endpoints::InvalidURIError)
     end
   end
 end
