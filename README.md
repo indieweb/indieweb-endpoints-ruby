@@ -18,7 +18,7 @@
 
 Before installing and using indieweb-endpoints-ruby, you'll want to have [Ruby](https://www.ruby-lang.org) 2.6 (or newer) installed. It's recommended that you use a Ruby version managment tool like [rbenv](https://github.com/rbenv/rbenv), [chruby](https://github.com/postmodern/chruby), or [rvm](https://github.com/rvm/rvm).
 
-indieweb-endpoints-ruby is developed using Ruby 2.6.9 and is additionally tested against Ruby 2.7, 3.0, and 3.1 using [GitHub Actions](https://github.com/indieweb/indieweb-endpoints-ruby/actions).
+indieweb-endpoints-ruby is developed using Ruby 2.6.10 and is additionally tested against Ruby 2.7, 3.0, and 3.1 using [GitHub Actions](https://github.com/indieweb/indieweb-endpoints-ruby/actions).
 
 ## Installation
 
@@ -80,7 +80,7 @@ From [httprb/http](https://github.com/httprb/http):
 
 - `IndieWeb::Endpoints::HttpError`
 
-From the Ruby Standard Library's [`OpenSSL::SSL::SSLError`](https://ruby-doc.org/stdlib-2.6.9/libdoc/openssl/rdoc/OpenSSL/SSL/SSLError.html):
+From the Ruby Standard Library's [`OpenSSL::SSL::SSLError`](https://ruby-doc.org/stdlib-2.6.10/libdoc/openssl/rdoc/OpenSSL/SSL/SSLError.html):
 
 - `IndieWeb::Endpoints::SSLError`
 
