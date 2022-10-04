@@ -13,6 +13,7 @@ module IndieWeb
       def results
         {
           authorization_endpoint: result_for(:authorization_endpoint),
+          'indieauth-metadata': result_for(:'indieauth-metadata'),
           micropub: result_for(:micropub),
           microsub: result_for(:microsub),
           redirect_uri: results_for(:redirect_uri),
