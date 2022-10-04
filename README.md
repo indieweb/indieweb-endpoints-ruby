@@ -46,7 +46,7 @@ With indieweb-endpoints-ruby added to your project's `Gemfile` and installed, yo
 require 'indieweb/endpoints'
 
 IndieWeb::Endpoints.get('https://aaronparecki.com')
-#=> { authorization_endpoint: "https://aaronparecki.com/auth", micropub: "https://aaronparecki.com/micropub", microsub: "https://aperture.p3k.io/microsub/1", redirect_uri: nil, token_endpoint: "https://aaronparecki.com/auth/token", webmention: "https://webmention.io/aaronpk/webmention" }
+#=> { authorization_endpoint: "https://aaronparecki.com/auth", "indieauth-metadata": "https://aaronparecki.com/.well-known/oauth-authorization-server", micropub: "https://aaronparecki.com/micropub", microsub: "https://aperture.p3k.io/microsub/1", redirect_uri: nil, token_endpoint: "https://aaronparecki.com/auth/token", webmention: "https://webmention.io/aaronpk/webmention" }
 ```
 
 This example will search `https://aaronparecki.com` for valid IndieAuth, Micropub, and Webmention endpoints and return a `Hash` of results. Each key in the returned `Hash` will have a value of either a `String` representing a URL or `nil`. The `redirect_uri` key's value will be either an `Array` or `nil` since a given URL may register multiple callback URLs.

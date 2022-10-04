@@ -8,8 +8,9 @@ module IndieWeb
         user_agent: 'IndieWeb Endpoint Discovery (https://rubygems.org/gems/indieweb-endpoints)'
       }.freeze
 
-      # Create a new client with a URL to parse for IndieWeb endpoints
+      # Create a new client with a URL to parse for IndieWeb endpoints.
       #
+      # @example
       #   client = IndieWeb::Endpoints::Client.new('https://aaronparecki.com')
       #
       # @param url [String, HTTP::URI, #to_s] an absolute URL
@@ -25,17 +26,17 @@ module IndieWeb
         %(#<#{self.class.name}:#{format('%#0x', object_id)} uri: "#{uri}">)
       end
 
-      # A Hash of the discovered IndieWeb endpoints from the provided URL
+      # A Hash of the discovered IndieWeb endpoints from the provided URL.
       #
       # @return [Hash{Symbol => String, Array, nil}]
       def endpoints
         @endpoints ||= Parser.new(response).results
       end
 
-      # The HTTP::Response object returned by the provided URL
+      # The +HTTP::Response+ object returned by the provided URL.
       #
       # @return [HTTP::Response]
-      # @raise [IndieWeb::Endpoints::HttpError]
+      # @raise [IndieWeb::Endpoints::HttpError, IndieWeb::Endpoints::SSLError]
       def response
         @response ||= HTTP.follow(max_hops: 20)
                           .headers(HTTP_HEADERS_OPTS)

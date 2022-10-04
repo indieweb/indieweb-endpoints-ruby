@@ -18,12 +18,15 @@ module IndieWeb
     class InvalidURIError < Error; end
     class SSLError < Error; end
 
-    # Discover a URL's IndieAuth, Micropub, Microsub, and Webmention endpoints
+    # Discover a URL's IndieAuth, Micropub, Microsub, and Webmention endpoints.
     #
+    # Convenience method for {IndieWeb::Endpoints::Client#endpoints}.
+    #
+    # @example
     #   IndieWeb::Endpoints.get('https://aaronparecki.com')
     #
-    # @param url [String] an absolute URL
-    # @return [Hash{Symbol => String, Array, nil}]
+    # @param (see IndieWeb::Endpoints::Client#endpoints)
+    # @return (see IndieWeb::Endpoints::Client#endpoints)
     def self.get(url)
       Client.new(url).endpoints
     end

@@ -10,7 +10,7 @@ module IndieWeb
         @uri = response.uri
       end
 
-      # @param headers [Symbol]
+      # @param identifier [Symbol]
       # @return [Array<String>, nil]
       def results_for(identifier)
         return unless parsed_headers.key?(identifier)
