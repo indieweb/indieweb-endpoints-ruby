@@ -1,5 +1,11 @@
 # Changelog
 
+## 7.2.0 / 2022-10-04
+
+- Add support for `indieauth-metadata` endpoint (35cc950)
+- Switch from pry-byebug to Ruby's debug gem (7ad8925)
+- Update development Ruby version to 2.6.10 (f105752)
+
 ## 7.1.0 / 2022-03-08
 
 - Refactor gem code (eba8115)
