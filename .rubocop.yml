@@ -1,6 +1,10 @@
 inherit_from:
   - https://raw.githubusercontent.com/jgarber623/rubocop-configs/main/.rubocop.gem.yml
 
+# Identifies usages of `array.compact.flatten.map { |x| x.downcase }`.
+Performance/ChainArrayAllocation:
+  Enabled: false
+
 RSpec/FilePath:
   CustomTransform:
     IndieWeb: indieweb
