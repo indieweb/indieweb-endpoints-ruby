@@ -1,5 +1,11 @@
 # Changelog
 
+## 8.0.0 / unreleased
+
+- Refactor `ResponseHeadersParser#results_for` to use `Enumerable#filter_map` (946ff3d)
+- Update link-header-parser dependency constraint (4f093fb)
+- **Breaking change:** Update development Ruby to 2.7.6 and minimum Ruby to 2.7 (593455d)
+
 ## 7.2.0 / 2022-10-04
 
 - Add support for `indieauth-metadata` endpoint (35cc950)
