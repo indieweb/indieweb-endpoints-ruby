@@ -8,6 +8,8 @@ module IndieWeb
         user_agent: 'IndieWeb Endpoint Discovery (https://rubygems.org/gems/indieweb-endpoints)'
       }.freeze
 
+      private_constant :HTTP_HEADERS_OPTS
+
       # Create a new client with a URL to parse for IndieWeb endpoints.
       #
       # @example
