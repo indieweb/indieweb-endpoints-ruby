@@ -1,6 +1,6 @@
 # Changelog
 
-## 8.0.0 / unreleased
+## 8.0.0 / 2022-11-09
 
 - Refactor `ResponseHeadersParser#results_for` to use `Enumerable#filter_map` (946ff3d)
 - Update link-header-parser dependency constraint (4f093fb)
