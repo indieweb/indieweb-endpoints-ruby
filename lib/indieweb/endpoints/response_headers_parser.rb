@@ -13,10 +13,10 @@ module IndieWeb
       # @param identifier [Symbol]
       # @return [Array<String>, nil]
       def results_for(identifier)
-        return unless parsed_headers.key?(identifier)
-
         # Reject endpoints that contain a fragment identifier
-        parsed_headers[identifier].reject { |header| HTTP::URI.parse(header.target_uri).fragment }.map(&:target_uri)
+        parsed_headers[identifier]&.filter_map do |header|
+          header.target_uri unless HTTP::URI.parse(header.target_uri).fragment
+        end
       end
 
       private
