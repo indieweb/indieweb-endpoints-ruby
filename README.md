@@ -4,7 +4,7 @@
 
 [![Gem](https://img.shields.io/gem/v/indieweb-endpoints.svg?logo=rubygems&style=for-the-badge)](https://rubygems.org/gems/indieweb-endpoints)
 [![Downloads](https://img.shields.io/gem/dt/indieweb-endpoints.svg?logo=rubygems&style=for-the-badge)](https://rubygems.org/gems/indieweb-endpoints)
-[![Build](https://img.shields.io/github/workflow/status/indieweb/indieweb-endpoints-ruby/CI?logo=github&style=for-the-badge)](https://github.com/indieweb/indieweb-endpoints-ruby/actions/workflows/ci.yml)
+[![Build](https://img.shields.io/github/actions/workflow/status/indieweb/indieweb-endpoints-ruby/ci.yml?branch=main&logo=github&style=for-the-badge)](https://github.com/indieweb/indieweb-endpoints-ruby/actions/workflows/ci.yml)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/indieweb/indieweb-endpoints-ruby.svg?logo=code-climate&style=for-the-badge)](https://codeclimate.com/github/indieweb/indieweb-endpoints-ruby)
 [![Coverage](https://img.shields.io/codeclimate/c/indieweb/indieweb-endpoints-ruby.svg?logo=code-climate&style=for-the-badge)](https://codeclimate.com/github/indieweb/indieweb-endpoints-ruby/code)
 
