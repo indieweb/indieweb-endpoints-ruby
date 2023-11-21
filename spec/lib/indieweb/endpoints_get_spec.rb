@@ -17,7 +17,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
 
       let(:response) do
         {
-          headers: { 'Content-Type': "text/html" },
+          headers: { "Content-Type": "text/html" },
           body: read_fixture(url)
         }
       end
@@ -25,7 +25,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
       let(:endpoints) do
         {
           authorization_endpoint: nil,
-          'indieauth-metadata': nil,
+          "indieauth-metadata": nil,
           micropub: nil,
           microsub: nil,
           redirect_uri: nil,
@@ -42,7 +42,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
     let(:endpoints) do
       {
         authorization_endpoint: "https://example.com/authorization_endpoint",
-        'indieauth-metadata': "https://example.com/indieauth-metadata",
+        "indieauth-metadata": "https://example.com/indieauth-metadata",
         micropub: "https://example.com/micropub",
         microsub: "https://example.com/microsub",
         redirect_uri: ["https://example.com/redirect_uri"],
@@ -181,7 +181,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
         let(:endpoints) do
           {
             authorization_endpoint: "https://example.com/authorization_endpoint",
-            'indieauth-metadata': nil,
+            "indieauth-metadata": nil,
             micropub: nil,
             microsub: nil,
             redirect_uri: ["https://example.com/callback", "https://example.com/redirect_uri"],
@@ -227,7 +227,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
         let(:endpoints) do
           {
             authorization_endpoint: "https://example.com/page/authorization_endpoint/endpoint",
-            'indieauth-metadata': nil,
+            "indieauth-metadata": nil,
             micropub: nil,
             microsub: nil,
             redirect_uri: nil,
@@ -242,7 +242,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
 
           stub_request(:get, redirected_url).to_return(
             headers: {
-              'Content-Type': "text/html",
+              "Content-Type": "text/html",
               Link: "<#{redirected_url}/endpoint>; rel=authorization_endpoint"
             }
           )
@@ -254,7 +254,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
   context "when given a URL that publishes endpoints in HTML elements" do
     let(:response) do
       {
-        headers: { 'Content-Type': "text/html" },
+        headers: { "Content-Type": "text/html" },
         body: read_fixture(url)
       }
     end
@@ -262,7 +262,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
     let(:endpoints) do
       {
         authorization_endpoint: "https://example.com/authorization_endpoint",
-        'indieauth-metadata': "https://example.com/indieauth-metadata",
+        "indieauth-metadata": "https://example.com/indieauth-metadata",
         micropub: "https://example.com/micropub",
         microsub: "https://example.com/microsub",
         redirect_uri: ["https://example.com/redirect"],
@@ -314,7 +314,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
         let(:endpoints) do
           {
             authorization_endpoint: "https://example.com/link_element_empty_href",
-            'indieauth-metadata': "https://example.com/link_element_empty_href",
+            "indieauth-metadata": "https://example.com/link_element_empty_href",
             micropub: "https://example.com/link_element_empty_href",
             microsub: "https://example.com/link_element_empty_href",
             redirect_uri: ["https://example.com/link_element_empty_href"],
@@ -340,7 +340,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
         let(:endpoints) do
           {
             authorization_endpoint: "https://example.com/authorization_endpoint?query=yes",
-            'indieauth-metadata': "https://example.com/indieauth-metadata?query=yes",
+            "indieauth-metadata": "https://example.com/indieauth-metadata?query=yes",
             micropub: "https://example.com/micropub?query=yes",
             microsub: "https://example.com/microsub?query=yes",
             redirect_uri: ["https://example.com/redirect?query=yes"],
@@ -359,7 +359,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
         let(:endpoints) do
           {
             authorization_endpoint: "https://example.com/link_element/relative_path/authorization_endpoint",
-            'indieauth-metadata': "https://example.com/link_element/relative_path/indieauth-metadata",
+            "indieauth-metadata": "https://example.com/link_element/relative_path/indieauth-metadata",
             micropub: "https://example.com/link_element/relative_path/micropub",
             microsub: "https://example.com/link_element/relative_path/microsub",
             redirect_uri: ["https://example.com/link_element/relative_path/redirect"],
@@ -387,7 +387,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
         let(:endpoints) do
           {
             authorization_endpoint: "https://example.com/authorization_endpoint",
-            'indieauth-metadata': "https://example.com/indieauth-metadata",
+            "indieauth-metadata": "https://example.com/indieauth-metadata",
             micropub: "https://example.com/micropub",
             microsub: "https://example.com/microsub",
             redirect_uri: ["https://example.com/redirect_uri"],
