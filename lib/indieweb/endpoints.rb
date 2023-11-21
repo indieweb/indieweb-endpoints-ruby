@@ -14,8 +14,11 @@ require_relative "endpoints/response_headers_parser"
 module IndieWeb
   module Endpoints
     class Error < StandardError; end
+
     class HttpError < Error; end
+
     class InvalidURIError < Error; end
+
     class SSLError < Error; end
 
     # Discover a URL's IndieAuth, Micropub, Microsub, and Webmention endpoints.
