@@ -4,8 +4,8 @@ module IndieWeb
   module Endpoints
     class Client
       HTTP_HEADERS_OPTS = {
-        accept: '*/*',
-        user_agent: 'IndieWeb Endpoint Discovery (https://rubygems.org/gems/indieweb-endpoints)'
+        accept: "*/*",
+        user_agent: "IndieWeb Endpoint Discovery (https://rubygems.org/gems/indieweb-endpoints)"
       }.freeze
 
       private_constant :HTTP_HEADERS_OPTS
@@ -25,7 +25,7 @@ module IndieWeb
 
       # @return [String]
       def inspect
-        %(#<#{self.class.name}:#{format('%#0x', object_id)} uri: "#{uri}">)
+        %(#<#{self.class.name}:#{format("%#0x", object_id)} uri: "#{uri}">)
       end
 
       # A Hash of the discovered IndieWeb endpoints from the provided URL.
@@ -40,10 +40,11 @@ module IndieWeb
       # @return [HTTP::Response]
       # @raise [IndieWeb::Endpoints::HttpError, IndieWeb::Endpoints::SSLError]
       def response
-        @response ||= HTTP.follow(max_hops: 20)
-                          .headers(HTTP_HEADERS_OPTS)
-                          .timeout(connect: 5, read: 5)
-                          .get(uri)
+        @response ||= HTTP
+          .follow(max_hops: 20)
+          .headers(HTTP_HEADERS_OPTS)
+          .timeout(connect: 5, read: 5)
+          .get(uri)
       rescue HTTP::Error => e
         raise HttpError, e
       rescue OpenSSL::SSL::SSLError => e

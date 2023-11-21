@@ -6,7 +6,7 @@ module IndieWeb
     class ResponseHeadersParser
       # @param response [HTTP::Response]
       def initialize(response)
-        @headers = response.headers.get('link')
+        @headers = response.headers.get("link")
         @uri = response.uri
       end
 
