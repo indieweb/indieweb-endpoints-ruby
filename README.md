@@ -14,24 +14,18 @@
 
 ## Getting Started
 
-Before installing and using indieweb-endpoints-ruby, you'll want to have [Ruby](https://www.ruby-lang.org) 2.7 (or newer) installed. It's recommended that you use a Ruby version managment tool like [rbenv](https://github.com/rbenv/rbenv), [chruby](https://github.com/postmodern/chruby), or [rvm](https://github.com/rvm/rvm).
+Before installing and using indieweb-endpoints-ruby, you'll want to have [Ruby](https://www.ruby-lang.org) 2.7 (or newer) installed. Using a Ruby version managment tool like [rbenv](https://github.com/rbenv/rbenv), [chruby](https://github.com/postmodern/chruby), or [rvm](https://github.com/rvm/rvm) is recommended.
 
 indieweb-endpoints-ruby is developed using Ruby 2.7.8 and is tested against additional Ruby versions using [GitHub Actions](https://github.com/indieweb/indieweb-endpoints-ruby/actions).
 
 ## Installation
 
-If you're using [Bundler](https://bundler.io), add indieweb-endpoints-ruby to your project's `Gemfile`:
+Add indieweb-endpoints-ruby to your project's `Gemfile` and run `bundle install`:
 
 ```ruby
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'indieweb-endpoints'
-```
-
-…and hop over to your command prompt and run…
-
-```sh
-$ bundle install
+gem "indieweb-endpoints"
 ```
 
 ## Usage
@@ -41,9 +35,9 @@ $ bundle install
 With indieweb-endpoints-ruby added to your project's `Gemfile` and installed, you may discover a URL's IndieWeb-relevant endpoints by doing:
 
 ```ruby
-require 'indieweb/endpoints'
+require "indieweb/endpoints"
 
-IndieWeb::Endpoints.get('https://aaronparecki.com')
+IndieWeb::Endpoints.get("https://aaronparecki.com")
 #=> { authorization_endpoint: "https://aaronparecki.com/auth", "indieauth-metadata": "https://aaronparecki.com/.well-known/oauth-authorization-server", micropub: "https://aaronparecki.com/micropub", microsub: "https://aperture.p3k.io/microsub/1", redirect_uri: nil, token_endpoint: "https://aaronparecki.com/auth/token", webmention: "https://webmention.io/aaronpk/webmention" }
 ```
 
@@ -54,9 +48,9 @@ This example will search `https://aaronparecki.com` for valid IndieAuth, Micropu
 Should the need arise, you may work with the `IndieWeb::Endpoints::Client` class:
 
 ```ruby
-require 'indieweb/endpoints'
+require "indieweb/endpoints"
 
-client = IndieWeb::Endpoints::Client.new('https://aaronparecki.com')
+client = IndieWeb::Endpoints::Client.new("https://aaronparecki.com")
 #=> #<IndieWeb::Endpoints::Client uri: "https://aaronparecki.com">
 
 client.response
@@ -84,7 +78,7 @@ From the Ruby Standard Library's [`OpenSSL::SSL::SSLError`](https://ruby-doc.org
 
 ## Contributing
 
-Interested in helping improve indieweb-endpoints-ruby? Awesome! Your help is greatly appreciated. See [CONTRIBUTING.md](https://github.com/indieweb/indieweb-endpoints-ruby/blob/main/CONTRIBUTING.md) for details.
+See [CONTRIBUTING.md](https://github.com/indieweb/indieweb-endpoints-ruby/blob/main/CONTRIBUTING.md) for more on how to contribute to indieweb-endpoints-ruby. Your help is greatly appreciated!
 
 By contributing to and participating in the development of indieweb-endpoints-ruby, you acknowledge that you have read and agree to the [IndieWeb Code of Conduct](https://indieweb.org/code-of-conduct).
 
@@ -96,4 +90,4 @@ indieweb-endpoints-ruby is written and maintained by [Jason Garber](https://sixt
 
 ## License
 
-indieweb-endpoints-ruby is freely available under the [MIT License](https://opensource.org/licenses/MIT). Use it, learn from it, fork it, improve it, change it, tailor it to your needs.
+indieweb-endpoints-ruby is freely available under the [MIT License](https://opensource.org/licenses/MIT).

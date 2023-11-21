@@ -26,7 +26,7 @@ module IndieWeb
     # Convenience method for {IndieWeb::Endpoints::Client#endpoints}.
     #
     # @example
-    #   IndieWeb::Endpoints.get('https://aaronparecki.com')
+    #   IndieWeb::Endpoints.get("https://aaronparecki.com")
     #
     # @param (see IndieWeb::Endpoints::Client#endpoints)
     # @return (see IndieWeb::Endpoints::Client#endpoints)

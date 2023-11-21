@@ -13,7 +13,7 @@ module IndieWeb
       # Create a new client with a URL to parse for IndieWeb endpoints.
       #
       # @example
-      #   client = IndieWeb::Endpoints::Client.new('https://aaronparecki.com')
+      #   client = IndieWeb::Endpoints::Client.new("https://aaronparecki.com")
       #
       # @param url [String, HTTP::URI, #to_s] an absolute URL
       # @raise [IndieWeb::Endpoints::InvalidURIError]
