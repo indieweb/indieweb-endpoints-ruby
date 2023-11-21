@@ -4,8 +4,8 @@ module IndieWeb
   module Endpoints
     class Client
       HTTP_HEADERS_OPTS = {
-        accept: '*/*',
-        user_agent: 'IndieWeb Endpoint Discovery (https://rubygems.org/gems/indieweb-endpoints)'
+        accept: "*/*",
+        user_agent: "IndieWeb Endpoint Discovery (https://rubygems.org/gems/indieweb-endpoints)"
       }.freeze
 
       private_constant :HTTP_HEADERS_OPTS

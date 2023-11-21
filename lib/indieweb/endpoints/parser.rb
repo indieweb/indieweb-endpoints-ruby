@@ -40,7 +40,7 @@ module IndieWeb
       # @param identifier [Symbol]
       # @param nodes [Array<String>]
       # @return [String, nil]
-      def result_for(identifier, nodes = ['link'])
+      def result_for(identifier, nodes = ["link"])
         results_for(identifier, nodes)&.first
       end
 
@@ -48,7 +48,7 @@ module IndieWeb
       # @param nodes [Array<String>]
       # @return [Array<String>, nil]
       # @raise [IndieWeb::Endpoints::InvalidURIError]
-      def results_for(identifier, nodes = ['link'])
+      def results_for(identifier, nodes = ["link"])
         results_from_request = [
           response_headers_parser.results_for(identifier),
           response_body_parser.results_for(identifier, nodes)

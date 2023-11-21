@@ -14,13 +14,13 @@ module IndieWeb
       # @param identifier [Symbol]
       # @param nodes [Array<String>]
       # @return [Array<string>, nil]
-      def results_for(identifier, nodes = ['link'])
-        return unless mime_type == 'text/html'
+      def results_for(identifier, nodes = ["link"])
+        return unless mime_type == "text/html"
 
         # Reject endpoints that contain a fragment identifier
-        selectors = nodes.map { |node| %(#{node}[rel~="#{identifier}"][href]:not([href*="#"])) }.join(',')
+        selectors = nodes.map { |node| %(#{node}[rel~="#{identifier}"][href]:not([href*="#"])) }.join(",")
 
-        parsed_body.css(selectors).map { |element| element['href'] }
+        parsed_body.css(selectors).map { |element| element["href"] }
       end
 
       private

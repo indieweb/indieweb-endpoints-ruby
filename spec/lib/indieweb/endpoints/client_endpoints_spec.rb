@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe IndieWeb::Endpoints::Client, '#endpoints' do
+RSpec.describe IndieWeb::Endpoints::Client, "#endpoints" do
   # TODO: Rework these specs to use WebMock: https://github.com/bblimke/webmock
-  context 'when running the webmention.rocks Endpoint Discovery tests' do
+  context "when running the webmention.rocks Endpoint Discovery tests" do
     WebmentionRocks::ENDPOINT_DISCOVERY_TESTS.each do |url, regexp|
       describe url do
         subject { described_class.new(url).endpoints[:webmention] }
