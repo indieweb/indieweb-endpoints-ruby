@@ -40,10 +40,11 @@ module IndieWeb
       # @return [HTTP::Response]
       # @raise [IndieWeb::Endpoints::HttpError, IndieWeb::Endpoints::SSLError]
       def response
-        @response ||= HTTP.follow(max_hops: 20)
-                          .headers(HTTP_HEADERS_OPTS)
-                          .timeout(connect: 5, read: 5)
-                          .get(uri)
+        @response ||= HTTP
+          .follow(max_hops: 20)
+          .headers(HTTP_HEADERS_OPTS)
+          .timeout(connect: 5, read: 5)
+          .get(uri)
       rescue HTTP::Error => e
         raise HttpError, e
       rescue OpenSSL::SSL::SSLError => e

@@ -17,7 +17,9 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
 
       let(:response) do
         {
-          headers: { "Content-Type": "text/html" },
+          headers: {
+            "Content-Type": "text/html"
+          },
           body: read_fixture(url)
         }
       end
@@ -219,7 +221,9 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
       it_behaves_like "a Hash of endpoints" do
         let(:response) do
           {
-            headers: { Location: "page/authorization_endpoint" },
+            headers: {
+              Location: "page/authorization_endpoint"
+            },
             status: 302
           }
         end
@@ -254,7 +258,9 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
   context "when given a URL that publishes endpoints in HTML elements" do
     let(:response) do
       {
-        headers: { "Content-Type": "text/html" },
+        headers: {
+          "Content-Type": "text/html"
+        },
         body: read_fixture(url)
       }
     end
