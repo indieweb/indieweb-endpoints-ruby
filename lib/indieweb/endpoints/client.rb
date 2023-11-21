@@ -25,7 +25,7 @@ module IndieWeb
 
       # @return [String]
       def inspect
-        %(#<#{self.class.name}:#{format('%#0x', object_id)} uri: "#{uri}">)
+        %(#<#{self.class.name}:#{format("%#0x", object_id)} uri: "#{uri}">)
       end
 
       # A Hash of the discovered IndieWeb endpoints from the provided URL.
