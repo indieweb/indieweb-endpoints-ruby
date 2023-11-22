@@ -1,0 +1,15 @@
+{
+  "name": "indieweb-endpoints-ruby",
+  "features": {},
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Shopify.ruby-lsp"
+      ]
+    }
+  },
+  "workspaceFolder": "/workspace",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "default",
+  "postCreateCommand": "bundle install"
+}
