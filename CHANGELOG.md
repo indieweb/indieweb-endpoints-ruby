@@ -1,5 +1,8 @@
 # Changelog
 
+> [!NOTE]
+> From v9.0.0, changes are documented using [GitHub Releases](https://github.com/indieweb/indieweb-endpoints-ruby/releases). For a given release, metadata on RubyGems.org will link to that version's Release page.
+
 ## 8.0.0 / 2022-11-09
 
 - Refactor `ResponseHeadersParser#results_for` to use `Enumerable#filter_map` (946ff3d)
