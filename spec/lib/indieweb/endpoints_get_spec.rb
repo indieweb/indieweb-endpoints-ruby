@@ -66,7 +66,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
                 "</microsub>; rel=microsub",
                 "</redirect_uri>; rel=redirect_uri",
                 "</token_endpoint>; rel=token_endpoint",
-                "</webmention>; rel=webmention"
+                "</webmention>; rel=webmention",
               ],
             },
           }
@@ -89,7 +89,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
                 %(<#{url}/microsub>; rel=microsub),
                 %(<#{url}/redirect_uri>; rel=redirect_uri),
                 %(<#{url}/token_endpoint>; rel=token_endpoint),
-                %(<#{url}/webmention>; rel=webmention)
+                %(<#{url}/webmention>; rel=webmention),
               ],
             },
           }
@@ -112,7 +112,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
                 %(<#{url}/microsub>; rel=microsub),
                 %(<#{url}/redirect_uri>; rel=redirect_uri),
                 %(<#{url}/token_endpoint>; rel=token_endpoint),
-                %(<#{url}/webmention>; rel=webmention)
+                %(<#{url}/webmention>; rel=webmention),
               ],
             },
           }
@@ -133,7 +133,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
                 %(<#{url}/microsub>; rel="microsub"),
                 %(<#{url}/redirect_uri>; rel="redirect_uri"),
                 %(<#{url}/token_endpoint>; rel="token_endpoint"),
-                %(<#{url}/webmention>; rel="webmention")
+                %(<#{url}/webmention>; rel="webmention"),
               ],
             },
           }
@@ -154,7 +154,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
                 %(<#{url}/microsub>; rel="microsub somethingelse"),
                 %(<#{url}/redirect_uri>; rel="redirect_uri somethingelse"),
                 %(<#{url}/token_endpoint>; rel="token_endpoint somethingelse"),
-                %(<#{url}/webmention>; rel="webmention somethingelse")
+                %(<#{url}/webmention>; rel="webmention somethingelse"),
               ],
             },
           }
@@ -174,7 +174,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
                 %(<#{url}/authorization_endpoint>; rel="authorization_endpoint"),
                 '</authorization_endpoint/error>; rel="other"',
                 %(<#{url}/redirect_uri>; rel="redirect_uri"),
-                '</callback>; rel="redirect_uri"'
+                '</callback>; rel="redirect_uri"',
               ],
             },
           }
@@ -208,7 +208,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
                 %(</microsub/error>; rel="other", <#{url}/microsub>; rel="microsub"),
                 %(</redirect_uri/error>; rel="other", <#{url}/redirect_uri>; rel="redirect_uri"),
                 %(</token_endpoint/error>; rel="other", <#{url}/token_endpoint>; rel="token_endpoint"),
-                %(</webmention/error>; rel="other", <#{url}/webmention>; rel="webmention")
+                %(</webmention/error>; rel="other", <#{url}/webmention>; rel="webmention"),
               ],
             },
           }

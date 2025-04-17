@@ -24,6 +24,6 @@ module WebmentionRocks
     ["https://webmention.rocks/test/20", %r{^https://webmention.rocks/test/20/webmention$}],
     ["https://webmention.rocks/test/21", %r{^https://webmention.rocks/test/21/webmention\?query=yes$}],
     ["https://webmention.rocks/test/22", %r{^https://webmention.rocks/test/22/webmention$}],
-    ["https://webmention.rocks/test/23/page", %r{^https://webmention.rocks/test/23/page/webmention-endpoint/.*$}]
+    ["https://webmention.rocks/test/23/page", %r{^https://webmention.rocks/test/23/page/webmention-endpoint/.*$}],
   ].freeze
 end

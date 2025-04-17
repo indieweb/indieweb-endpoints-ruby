@@ -51,7 +51,7 @@ module IndieWeb
       def results_for(identifier, nodes = ["link"])
         results_from_request = [
           response_headers_parser.results_for(identifier),
-          response_body_parser.results_for(identifier, nodes)
+          response_body_parser.results_for(identifier, nodes),
         ].flatten.compact
 
         return if results_from_request.none?
