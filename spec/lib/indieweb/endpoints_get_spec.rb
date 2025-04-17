@@ -18,9 +18,9 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
       let(:response) do
         {
           headers: {
-            "Content-Type": "text/html"
+            "Content-Type": "text/html",
           },
-          body: read_fixture(url)
+          body: read_fixture(url),
         }
       end
 
@@ -32,7 +32,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
           microsub: nil,
           redirect_uri: nil,
           token_endpoint: nil,
-          webmention: nil
+          webmention: nil,
         }
       end
     end
@@ -49,7 +49,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
         microsub: "https://example.com/microsub",
         redirect_uri: ["https://example.com/redirect_uri"],
         token_endpoint: "https://example.com/token_endpoint",
-        webmention: "https://example.com/webmention"
+        webmention: "https://example.com/webmention",
       }
     end
 
@@ -67,8 +67,8 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
                 "</redirect_uri>; rel=redirect_uri",
                 "</token_endpoint>; rel=token_endpoint",
                 "</webmention>; rel=webmention"
-              ]
-            }
+              ],
+            },
           }
         end
       end
@@ -90,8 +90,8 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
                 %(<#{url}/redirect_uri>; rel=redirect_uri),
                 %(<#{url}/token_endpoint>; rel=token_endpoint),
                 %(<#{url}/webmention>; rel=webmention)
-              ]
-            }
+              ],
+            },
           }
         end
       end
@@ -113,8 +113,8 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
                 %(<#{url}/redirect_uri>; rel=redirect_uri),
                 %(<#{url}/token_endpoint>; rel=token_endpoint),
                 %(<#{url}/webmention>; rel=webmention)
-              ]
-            }
+              ],
+            },
           }
         end
       end
@@ -134,8 +134,8 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
                 %(<#{url}/redirect_uri>; rel="redirect_uri"),
                 %(<#{url}/token_endpoint>; rel="token_endpoint"),
                 %(<#{url}/webmention>; rel="webmention")
-              ]
-            }
+              ],
+            },
           }
         end
       end
@@ -155,8 +155,8 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
                 %(<#{url}/redirect_uri>; rel="redirect_uri somethingelse"),
                 %(<#{url}/token_endpoint>; rel="token_endpoint somethingelse"),
                 %(<#{url}/webmention>; rel="webmention somethingelse")
-              ]
-            }
+              ],
+            },
           }
         end
       end
@@ -175,8 +175,8 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
                 '</authorization_endpoint/error>; rel="other"',
                 %(<#{url}/redirect_uri>; rel="redirect_uri"),
                 '</callback>; rel="redirect_uri"'
-              ]
-            }
+              ],
+            },
           }
         end
 
@@ -188,7 +188,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
             microsub: nil,
             redirect_uri: ["https://example.com/callback", "https://example.com/redirect_uri"],
             token_endpoint: nil,
-            webmention: nil
+            webmention: nil,
           }
         end
       end
@@ -209,8 +209,8 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
                 %(</redirect_uri/error>; rel="other", <#{url}/redirect_uri>; rel="redirect_uri"),
                 %(</token_endpoint/error>; rel="other", <#{url}/token_endpoint>; rel="token_endpoint"),
                 %(</webmention/error>; rel="other", <#{url}/webmention>; rel="webmention")
-              ]
-            }
+              ],
+            },
           }
         end
       end
@@ -222,9 +222,9 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
         let(:response) do
           {
             headers: {
-              Location: "page/authorization_endpoint"
+              Location: "page/authorization_endpoint",
             },
-            status: 302
+            status: 302,
           }
         end
 
@@ -236,7 +236,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
             microsub: nil,
             redirect_uri: nil,
             token_endpoint: nil,
-            webmention: nil
+            webmention: nil,
           }
         end
 
@@ -247,7 +247,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
           stub_request(:get, redirected_url).to_return(
             headers: {
               "Content-Type": "text/html",
-              Link: "<#{redirected_url}/endpoint>; rel=authorization_endpoint"
+              Link: "<#{redirected_url}/endpoint>; rel=authorization_endpoint",
             }
           )
         end
@@ -259,9 +259,9 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
     let(:response) do
       {
         headers: {
-          "Content-Type": "text/html"
+          "Content-Type": "text/html",
         },
-        body: read_fixture(url)
+        body: read_fixture(url),
       }
     end
 
@@ -273,7 +273,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
         microsub: "https://example.com/microsub",
         redirect_uri: ["https://example.com/redirect"],
         token_endpoint: "https://example.com/token_endpoint",
-        webmention: nil
+        webmention: nil,
       }
     end
 
@@ -325,7 +325,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
             microsub: "https://example.com/link_element_empty_href",
             redirect_uri: ["https://example.com/link_element_empty_href"],
             token_endpoint: "https://example.com/link_element_empty_href",
-            webmention: nil
+            webmention: nil,
           }
         end
       end
@@ -351,7 +351,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
             microsub: "https://example.com/microsub?query=yes",
             redirect_uri: ["https://example.com/redirect?query=yes"],
             token_endpoint: "https://example.com/token_endpoint?query=yes",
-            webmention: nil
+            webmention: nil,
           }
         end
       end
@@ -370,7 +370,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
             microsub: "https://example.com/link_element/relative_path/microsub",
             redirect_uri: ["https://example.com/link_element/relative_path/redirect"],
             token_endpoint: "https://example.com/link_element/relative_path/token_endpoint",
-            webmention: nil
+            webmention: nil,
           }
         end
       end
@@ -398,7 +398,7 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
             microsub: "https://example.com/microsub",
             redirect_uri: ["https://example.com/redirect_uri"],
             token_endpoint: "https://example.com/token_endpoint",
-            webmention: nil
+            webmention: nil,
           }
         end
       end

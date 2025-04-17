@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
     "bug_tracker_uri" => "#{spec.homepage}/issues",
     "changelog_uri" => "#{spec.homepage}/releases/tag/v#{spec.version}",
     "rubygems_mfa_required" => "true",
-    "source_code_uri" => "#{spec.homepage}/tree/v#{spec.version}"
+    "source_code_uri" => "#{spec.homepage}/tree/v#{spec.version}",
   }
 
   spec.add_runtime_dependency "http", "~> 5.2"

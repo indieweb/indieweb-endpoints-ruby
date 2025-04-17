@@ -18,7 +18,7 @@ module IndieWeb
           microsub: result_for(:microsub),
           redirect_uri: results_for(:redirect_uri),
           token_endpoint: result_for(:token_endpoint),
-          webmention: result_for(:webmention, %w[link a])
+          webmention: result_for(:webmention, %w[link a]),
         }
       end
 
