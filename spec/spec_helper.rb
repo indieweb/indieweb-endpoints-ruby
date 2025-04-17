@@ -21,7 +21,7 @@ require "webmock/rspec"
 
 require "indieweb/endpoints"
 
-Dir[File.join(__dir__, "support/**/*.rb")].sort.each { |f| require_relative f }
+Dir.glob("support/**/*.rb", base: __dir__).each { |f| require_relative f }
 
 RSpec.configure do |config|
   config.include FixtureHelpers
