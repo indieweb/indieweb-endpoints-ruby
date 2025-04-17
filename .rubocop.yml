@@ -3,3 +3,8 @@ inherit_from:
   - https://rubocop.jgarber.cc/rubocop-rspec.yml
 
 plugins: rubocop-packaging
+
+# Checks that spec file paths are consistent and well-formed.
+RSpec/SpecFilePathFormat:
+  CustomTransform:
+    IndieWeb: "indieweb"
