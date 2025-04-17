@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
     "source_code_uri" => "#{spec.homepage}/tree/v#{spec.version}",
   }
 
-  spec.add_runtime_dependency "http", "~> 5.2"
-  spec.add_runtime_dependency "link-header-parser", "~> 5.1"
-  spec.add_runtime_dependency "nokogiri", ">= 1.16"
+  spec.add_dependency "http", "~> 5.2"
+  spec.add_dependency "link-header-parser", "~> 5.1"
+  spec.add_dependency "nokogiri", ">= 1.16"
 end
