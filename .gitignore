@@ -14,7 +14,7 @@
 # .env
 
 # Ignore history files.
-.irb_history
+.irbrc_history
 .rdbg_history
 
 # Documentation cache and generated files:
