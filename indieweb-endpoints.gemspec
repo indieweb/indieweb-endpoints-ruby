@@ -16,8 +16,8 @@ Gem::Specification.new do |spec|
   spec.license = "MIT"
 
   spec.files = Dir["lib/**/*"].reject { |f| File.directory?(f) }
-  spec.files += ['LICENSE', 'CHANGELOG.md', 'CODE_OF_CONDUCT.md', 'CONTRIBUTING.md', 'README.md']
-  spec.files += ['indieweb-endpoints.gemspec']
+  spec.files += ["LICENSE", "CHANGELOG.md", "CODE_OF_CONDUCT.md", "CONTRIBUTING.md", "README.md"]
+  spec.files += ["indieweb-endpoints.gemspec"]
 
   spec.require_paths = ["lib"]
 
