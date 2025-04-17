@@ -24,6 +24,8 @@ Gem::Specification.new do |spec|
   spec.metadata = {
     "bug_tracker_uri" => "#{spec.homepage}/issues",
     "changelog_uri" => "#{spec.homepage}/releases/tag/v#{spec.version}",
+    "documentation_uri" => "https://rubydoc.info/gems/#{spec.name}/#{spec.version}",
+    "homepage_uri" => spec.homepage,
     "rubygems_mfa_required" => "true",
     "source_code_uri" => "#{spec.homepage}/tree/v#{spec.version}",
   }
