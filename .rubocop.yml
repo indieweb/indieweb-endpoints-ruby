@@ -1,6 +1,7 @@
 inherit_from:
   - https://rubocop.jgarber.cc/rubocop.yml
   - https://rubocop.jgarber.cc/rubocop-rspec.yml
+  - .rubocop_todo.yml
 
 plugins: rubocop-packaging
 
