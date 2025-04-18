@@ -10,13 +10,13 @@
 
 - Compliant with [Section 4.1](https://www.w3.org/TR/indieauth/#discovery-by-clients) and [Section 4.2.2](https://www.w3.org/TR/indieauth/#redirect-url) of [the W3C's IndieAuth Working Group Note](https://www.w3.org/TR/indieauth/), [Section 5.3](https://www.w3.org/TR/micropub/#endpoint-discovery) of [the W3C's Micropub Recommendation](https://www.w3.org/TR/micropub/), and [Section 3.1.2](https://www.w3.org/TR/webmention/#sender-discovers-receiver-webmention-endpoint) of [the W3C's Webmention Recommendation](https://www.w3.org/TR/webmention/).
 - Passes all Endpoint Discovery tests on [webmention.rocks](https://webmention.rocks).
-- Supports Ruby 3.0 and newer.
+- Supports Ruby 2.6 and newer.
 
 ## Getting Started
 
-Before installing and using indieweb-endpoints-ruby, you'll want to have [Ruby](https://www.ruby-lang.org) 3.0 (or newer) installed. Using a Ruby version managment tool like [rbenv](https://github.com/rbenv/rbenv), [chruby](https://github.com/postmodern/chruby), or [rvm](https://github.com/rvm/rvm) is recommended.
+Before installing and using indieweb-endpoints-ruby, you'll want to have [Ruby](https://www.ruby-lang.org) 2.6 (or newer) installed. Using a Ruby version managment tool like [rbenv](https://github.com/rbenv/rbenv), [chruby](https://github.com/postmodern/chruby), or [rvm](https://github.com/rvm/rvm) is recommended.
 
-indieweb-endpoints-ruby is developed using Ruby 3.3.0 and is tested against additional Ruby versions using [GitHub Actions](https://github.com/indieweb/indieweb-endpoints-ruby/actions).
+indieweb-endpoints-ruby is developed using Ruby 3.4 and is tested against additional Ruby versions using [GitHub Actions](https://github.com/indieweb/indieweb-endpoints-ruby/actions).
 
 ## Installation
 
@@ -41,7 +41,7 @@ IndieWeb::Endpoints.get("https://aaronparecki.com")
 #=> { authorization_endpoint: "https://aaronparecki.com/auth", "indieauth-metadata": "https://aaronparecki.com/.well-known/oauth-authorization-server", micropub: "https://aaronparecki.com/micropub", microsub: "https://aperture.p3k.io/microsub/1", redirect_uri: nil, token_endpoint: "https://aaronparecki.com/auth/token", webmention: "https://webmention.io/aaronpk/webmention" }
 ```
 
-This example will search `https://aaronparecki.com` for valid IndieAuth, Micropub, and Webmention endpoints and return a `Hash` of results. Each key in the returned `Hash` will have a value of either a `String` representing a URL or `nil`. The `redirect_uri` key's value will be either an `Array` or `nil` since a given URL may register multiple callback URLs.
+This example will search [Aaron's website](https://aaronparecki.com) for valid IndieAuth, Micropub, and Webmention endpoints and return a `Hash` of results. Each key in the returned `Hash` will have a value of either a `String` representing a URL or `nil`. The `redirect_uri` key's value will be either an `Array` or `nil` since a given URL may register multiple callback URLs.
 
 ### Advanced Usage
 
@@ -62,18 +62,10 @@ client.endpoints
 
 ### Exception Handling
 
-There are several exceptions that may be raised by indieweb-endpoints-ruby's underlying dependencies. These errors are raised as subclasses of `IndieWeb::Endpoints::Error` (which itself is a subclass of `StandardError`).
-
-From [sporkmonger/addressable](https://github.com/sporkmonger/addressable):
+indieweb-endpoints-ruby may raise the following exceptions which are subclasses of `IndieWeb::Endpoints::Error` (which itself is a subclass of `StandardError`).
 
 - `IndieWeb::Endpoints::InvalidURIError`
-
-From [httprb/http](https://github.com/httprb/http):
-
 - `IndieWeb::Endpoints::HttpError`
-
-From the Ruby Standard Library's [`OpenSSL::SSL::SSLError`](https://ruby-doc.org/3.3.0/exts/openssl/OpenSSL/SSL/SSLError.html):
-
 - `IndieWeb::Endpoints::SSLError`
 
 ## Contributing
