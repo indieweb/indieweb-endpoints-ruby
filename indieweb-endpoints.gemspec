@@ -3,7 +3,7 @@
 require_relative "lib/indieweb/endpoints/version"
 
 Gem::Specification.new do |spec|
-  spec.required_ruby_version = ">= 3.0"
+  spec.required_ruby_version = ">= 2.6"
 
   spec.name = "indieweb-endpoints"
   spec.version = IndieWeb::Endpoints::VERSION
@@ -31,6 +31,6 @@ Gem::Specification.new do |spec|
   }
 
   spec.add_dependency "http", "~> 5.2"
-  spec.add_dependency "link-header-parser", "~> 5.1"
-  spec.add_dependency "nokogiri", ">= 1.16"
+  spec.add_dependency "link-header-parser", "~> 6.1"
+  spec.add_dependency "nokogiri", ">= 1.13"
 end
