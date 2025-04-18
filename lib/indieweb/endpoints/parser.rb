@@ -9,16 +9,43 @@ module IndieWeb
         @response = response
       end
 
-      # @return [Hash{Symbol => String, Array<String>, nil}]
-      def results
+      # @param identifier [String]
+      # @param node_names [Array<String>]
+      #
+      # @return [Array<String>]
+      #
+      # @raise [InvalidURIError]
+      def matches(identifier, node_names: ["link"])
+        results =
+          (matches_from_headers(identifier) + matches_from_body(identifier, node_names))
+            .compact
+            .map! { |endpoint| response.uri.join(endpoint).to_s }
+
+        results.uniq!
+        results.sort!
+
+        results
+      rescue Addressable::URI::InvalidURIError => e
+        raise InvalidURIError, e
+      end
+
+      # @param (see #matches)
+      #
+      # @return [String]
+      def match(identifier, **kwargs)
+        matches(identifier, **kwargs).first
+      end
+
+      # @return [Hash{Symbol => String, Array, nil}]
+      def to_h
         {
-          authorization_endpoint: result_for(:authorization_endpoint),
-          "indieauth-metadata": result_for(:"indieauth-metadata"),
-          micropub: result_for(:micropub),
-          microsub: result_for(:microsub),
-          redirect_uri: results_for(:redirect_uri),
-          token_endpoint: result_for(:token_endpoint),
-          webmention: result_for(:webmention, ["link", "a"]),
+          authorization_endpoint: match("authorization_endpoint"),
+          "indieauth-metadata": match("indieauth-metadata"),
+          micropub: match("micropub"),
+          microsub: match("microsub"),
+          redirect_uri: (redirect_uri = matches("redirect_uri")).any? ? redirect_uri : nil,
+          token_endpoint: match("token_endpoint"),
+          webmention: match("webmention", node_names: ["link", "a"]),
         }
       end
 
@@ -27,38 +54,32 @@ module IndieWeb
       # @return [HTTP::Response]
       attr_reader :response
 
-      # @return [IndieWeb::Endpoints::ResponseBodyParser]
-      def response_body_parser
-        @response_body_parser ||= ResponseBodyParser.new(response)
+      # @return [Nokogiri::HTML5::Document]
+      def body
+        @body ||= Nokogiri::HTML5(response.body)
       end
 
-      # @return [IndieWeb::Endpoints::ResponseHeadersParser]
-      def response_headers_parser
-        @response_headers_parser ||= ResponseHeadersParser.new(response)
+      # @return [Hash{Symbol => Array<LinkHeaderParser::LinkHeader>}]
+      def headers
+        @headers ||= LinkHeaderParser.parse(response.headers.get("link"), base: response.uri).group_by_relation_type
       end
 
-      # @param identifier [Symbol]
-      # @param nodes [Array<String>]
-      # @return [String, nil]
-      def result_for(identifier, nodes = ["link"])
-        results_for(identifier, nodes)&.first
+      # @return [Array<String>]
+      def matches_from_body(identifier, node_names)
+        return [] unless response.mime_type == "text/html"
+
+        # Reject endpoints that contain a fragment identifier.
+        selectors = node_names.map { |node| %(#{node}[rel~="#{identifier}"][href]:not([href*="#"])) }.join(",")
+
+        body.css(selectors).map { |element| element["href"] }
       end
 
-      # @param identifier [Symbol]
-      # @param nodes [Array<String>]
-      # @return [Array<String>, nil]
-      # @raise [IndieWeb::Endpoints::InvalidURIError]
-      def results_for(identifier, nodes = ["link"])
-        results_from_request = [
-          response_headers_parser.results_for(identifier),
-          response_body_parser.results_for(identifier, nodes),
-        ].flatten.compact
-
-        return if results_from_request.none?
-
-        results_from_request.map { |endpoint| response.uri.join(endpoint).to_s }.uniq.sort
-      rescue Addressable::URI::InvalidURIError => e
-        raise InvalidURIError, e
+      # @return [Array<String>]
+      def matches_from_headers(identifier)
+        # Reject endpoints that contain a fragment identifier.
+        Array(headers[identifier.to_sym])
+          .filter { |header| !HTTP::URI.parse(header.target_uri).fragment }
+          .map(&:target_uri)
       end
     end
   end

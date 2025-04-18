@@ -6,8 +6,6 @@ require "nokogiri"
 
 require_relative "endpoints/client"
 require_relative "endpoints/parser"
-require_relative "endpoints/response_body_parser"
-require_relative "endpoints/response_headers_parser"
 
 module IndieWeb
   module Endpoints
@@ -21,13 +19,14 @@ module IndieWeb
 
     # Discover a URL's IndieAuth, Micropub, Microsub, and Webmention endpoints.
     #
-    # Convenience method for {IndieWeb::Endpoints::Client#endpoints}.
+    # Convenience method for {Client#endpoints}.
     #
     # @example
     #   IndieWeb::Endpoints.get("https://aaronparecki.com")
     #
-    # @param (see IndieWeb::Endpoints::Client#endpoints)
-    # @return (see IndieWeb::Endpoints::Client#endpoints)
+    # @param (see Client#initialize)
+    #
+    # @return (see Client#endpoints)
     def self.get(url)
       Client.new(url).endpoints
     end

@@ -16,7 +16,8 @@ module IndieWeb
       #   client = IndieWeb::Endpoints::Client.new("https://aaronparecki.com")
       #
       # @param url [String, HTTP::URI, #to_s] an absolute URL
-      # @raise [IndieWeb::Endpoints::InvalidURIError]
+      #
+      # @raise [InvalidURIError]
       def initialize(url)
         @uri = HTTP::URI.parse(url.to_s)
       rescue Addressable::URI::InvalidURIError => e
@@ -32,13 +33,14 @@ module IndieWeb
       #
       # @return [Hash{Symbol => String, Array, nil}]
       def endpoints
-        @endpoints ||= Parser.new(response).results
+        @endpoints ||= Parser.new(response).to_h
       end
 
-      # The +HTTP::Response+ object returned by the provided URL.
+      # The {HTTP::Response} object returned by the provided URL.
       #
       # @return [HTTP::Response]
-      # @raise [IndieWeb::Endpoints::HttpError, IndieWeb::Endpoints::SSLError]
+      #
+      # @raise [HttpError, SSLError]
       def response
         @response ||= HTTP
                         .follow(max_hops: 20)
