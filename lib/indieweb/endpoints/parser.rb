@@ -16,10 +16,7 @@ module IndieWeb
       #
       # @raise [InvalidURIError]
       def matches(identifier, node_names: ["link"])
-        results =
-          (matches_from_headers(identifier) + matches_from_body(identifier, node_names))
-            .compact
-            .map! { |endpoint| response.uri.join(endpoint).to_s }
+        results = (matches_from_headers(identifier) + matches_from_body(identifier, node_names)).compact
 
         results.uniq!
         results.sort!
@@ -56,7 +53,7 @@ module IndieWeb
 
       # @return [Nokogiri::HTML5::Document]
       def body
-        @body ||= Nokogiri::HTML5(response.body)
+        @body ||= Nokogiri::HTML5(response.body, response.uri).resolve_relative_urls!
       end
 
       # @return [Hash{Symbol => Array<LinkHeaderParser::LinkHeader>}]
