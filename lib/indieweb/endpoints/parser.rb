@@ -74,12 +74,15 @@ module IndieWeb
         body.css(selectors).map { |element| element["href"] }
       end
 
+      # Reject URLs with fragment identifiers per the IndieAuth specification.
+      #
+      # @param identifier [String, #to_sym]
+      #
       # @return [Array<String>]
       def matches_from_headers(identifier)
-        # Reject endpoints that contain a fragment identifier.
-        Array(headers[identifier.to_sym])
-          .filter { |header| !HTTP::URI.parse(header.target_uri).fragment }
-          .map(&:target_uri)
+        Array(headers[identifier.to_sym]).filter_map do |header|
+          header.target_uri unless HTTP::URI.parse(header.target_uri).fragment
+        end
       end
     end
   end
