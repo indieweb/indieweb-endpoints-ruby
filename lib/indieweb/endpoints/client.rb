@@ -24,10 +24,15 @@ module IndieWeb
         raise InvalidURIError, e
       end
 
+      # :nocov:
       # @return [String]
       def inspect
-        %(#<#{self.class.name}:#{format("%#0x", object_id)} uri: "#{uri}">)
+        format "#<%<class>s:%<id>#018x @uri=%<uri>s",
+               class: self.class,
+               id: object_id << 1,
+               uri: uri.inspect
       end
+      # :nocov:
 
       # A Hash of the discovered IndieWeb endpoints from the provided URL.
       #
