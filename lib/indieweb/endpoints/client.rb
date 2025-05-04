@@ -3,13 +3,6 @@
 module IndieWeb
   module Endpoints
     class Client
-      HTTP_HEADERS_OPTS = {
-        accept: "*/*",
-        user_agent: "IndieWeb Endpoint Discovery (https://rubygems.org/gems/indieweb-endpoints)",
-      }.freeze
-
-      private_constant :HTTP_HEADERS_OPTS
-
       # Create a new client with a URL to parse for IndieWeb endpoints.
       #
       # @example
@@ -41,17 +34,18 @@ module IndieWeb
         @endpoints ||= Parser.new(response).to_h
       end
 
-      # The {HTTP::Response} object returned by the provided URL.
+      # The +HTTP::Response+ object.
       #
       # @return [HTTP::Response]
       #
       # @raise [HttpError, SSLError]
       def response
-        @response ||= HTTP
-                        .follow(max_hops: 20)
-                        .headers(HTTP_HEADERS_OPTS)
-                        .timeout(connect: 5, read: 5)
-                        .get(uri)
+        @response ||=
+          HTTP
+            .follow(max_hops: 20)
+            .headers(accept: "*/*", user_agent: user_agent)
+            .timeout(connect: 5, read: 5)
+            .get(uri)
       rescue HTTP::Error => e
         raise HttpError, e
       rescue OpenSSL::SSL::SSLError => e
@@ -62,6 +56,11 @@ module IndieWeb
 
       # @return [HTTP::URI]
       attr_reader :uri
+
+      # @return [String]
+      def user_agent
+        "Mozilla/5.0 (compatible; IndieWebEndpointsDiscovery/1.0; +https://rubygems.org/gems/indieweb-endpoints)"
+      end
     end
   end
 end
