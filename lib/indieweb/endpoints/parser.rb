@@ -64,14 +64,18 @@ module IndieWeb
         @headers ||= LinkHeaderParser.parse(response.headers.get("link"), base: response.uri).group_by_relation_type
       end
 
+      # Reject URLs with fragment identifiers per the IndieAuth specification.
+      #
+      # @param identifier [String, #to_s]
+      # @param node_names [Array<String, #to_s>]
+      #
       # @return [Array<String>]
       def matches_from_body(identifier, node_names)
         return [] unless response.mime_type == "text/html"
 
-        # Reject endpoints that contain a fragment identifier.
-        selectors = node_names.map { |node| %(#{node}[rel~="#{identifier}"][href]:not([href*="#"])) }.join(",")
-
-        body.css(selectors).map { |element| element["href"] }
+        body
+          .css(*node_names.map { |node| %(#{node}[rel~="#{identifier}"][href]:not([href*="#"]) / @href) })
+          .map(&:value)
       end
 
       # Reject URLs with fragment identifiers per the IndieAuth specification.
