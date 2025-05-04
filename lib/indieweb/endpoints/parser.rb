@@ -22,8 +22,6 @@ module IndieWeb
         results.sort!
 
         results
-      rescue Addressable::URI::InvalidURIError => e
-        raise InvalidURIError, e
       end
 
       # @param (see #matches)

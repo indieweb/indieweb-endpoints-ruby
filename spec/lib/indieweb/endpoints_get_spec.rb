@@ -376,16 +376,6 @@ RSpec.describe IndieWeb::Endpoints, ".get" do
       end
     end
 
-    context "when the `link` element references an invalid URL" do
-      let(:url) { "https://example.com/link_element/invalid_href" }
-
-      it "raises an IndieWeb::Endpoints::InvalidURIError" do
-        stub_request(:get, url).to_return(response)
-
-        expect { described_class.get(url) }.to raise_error(IndieWeb::Endpoints::InvalidURIError)
-      end
-    end
-
     context "when the `link` element references a URL with a fragment" do
       it_behaves_like "a Hash of endpoints" do
         let(:url) { "https://example.com/link_element_fragment" }
