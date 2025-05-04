@@ -30,5 +30,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "http", "~> 5.2"
   spec.add_dependency "link-header-parser", "~> 6.1"
-  spec.add_dependency "nokogiri", ">= 1.13"
+  spec.add_dependency "nokogiri-html-ext", "~> 1.4"
 end

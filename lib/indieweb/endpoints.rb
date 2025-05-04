@@ -2,7 +2,7 @@
 
 require "http"
 require "link-header-parser"
-require "nokogiri"
+require "nokogiri/html-ext"
 
 require_relative "endpoints/client"
 require_relative "endpoints/parser"
