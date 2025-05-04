@@ -10,11 +10,11 @@
 
 - Compliant with [Section 4.1](https://www.w3.org/TR/indieauth/#discovery-by-clients) and [Section 4.2.2](https://www.w3.org/TR/indieauth/#redirect-url) of [the W3C's IndieAuth Working Group Note](https://www.w3.org/TR/indieauth/), [Section 5.3](https://www.w3.org/TR/micropub/#endpoint-discovery) of [the W3C's Micropub Recommendation](https://www.w3.org/TR/micropub/), and [Section 3.1.2](https://www.w3.org/TR/webmention/#sender-discovers-receiver-webmention-endpoint) of [the W3C's Webmention Recommendation](https://www.w3.org/TR/webmention/).
 - Passes all Endpoint Discovery tests on [webmention.rocks](https://webmention.rocks).
-- Supports Ruby 2.6 and newer.
+- Supports Ruby 2.7 and newer.
 
 ## Getting Started
 
-Before installing and using indieweb-endpoints-ruby, you'll want to have [Ruby](https://www.ruby-lang.org) 2.6 (or newer) installed. Using a Ruby version managment tool like [rbenv](https://github.com/rbenv/rbenv), [chruby](https://github.com/postmodern/chruby), or [rvm](https://github.com/rvm/rvm) is recommended.
+Before installing and using indieweb-endpoints-ruby, you'll want to have [Ruby](https://www.ruby-lang.org) 2.7 (or newer) installed. Using a Ruby version managment tool like [rbenv](https://github.com/rbenv/rbenv), [chruby](https://github.com/postmodern/chruby), or [rvm](https://github.com/rvm/rvm) is recommended.
 
 indieweb-endpoints-ruby is developed using Ruby 3.4 and is tested against additional Ruby versions using [GitHub Actions](https://github.com/indieweb/indieweb-endpoints-ruby/actions).
 
