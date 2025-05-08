@@ -20,7 +20,7 @@ module IndieWeb
       # :nocov:
       # @return [String]
       def inspect
-        format "#<%<class>s:%<id>#0x @uri=%<uri>s",
+        format "#<%<class>s:%<id>#0x @uri=%<uri>s>",
                class: self.class,
                id: object_id << 1,
                uri: uri.inspect
