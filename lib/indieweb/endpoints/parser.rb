@@ -56,7 +56,7 @@ module IndieWeb
 
       # @return [Hash{Symbol => Array<LinkHeaderParser::LinkHeader>}]
       def headers
-        @headers ||= LinkHeaderParser.parse(response.headers.get("link"), base: response.uri).group_by_relation_type
+        @headers ||= LinkHeaderParser.parse(response.headers.get("link"), base_uri: response.uri).group_by_relation_type
       end
 
       # Reject URLs with fragment identifiers per the IndieAuth specification.
@@ -79,7 +79,7 @@ module IndieWeb
       #
       # @return [Array<String>]
       def matches_from_headers(identifier)
-        Array(headers[identifier.to_sym]).filter_map do |header|
+        Array(headers[identifier]).filter_map do |header|
           header.target_uri unless HTTP::URI.parse(header.target_uri).fragment
         end
       end
