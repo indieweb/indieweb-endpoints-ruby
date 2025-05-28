@@ -51,7 +51,7 @@ module IndieWeb
 
       # @return [Nokogiri::HTML5::Document]
       def body
-        @body ||= Nokogiri::HTML5(response.body, response.uri).resolve_relative_urls!
+        @body ||= Nokogiri::HTML5(response.body, response.uri.to_s).resolve_urls!
       end
 
       # @return [Hash{Symbol => Array<LinkHeaderParser::LinkHeader>}]
