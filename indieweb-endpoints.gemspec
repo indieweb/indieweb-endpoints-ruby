@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
     "source_code_uri" => "#{spec.homepage}/tree/v#{spec.version}",
   }
 
-  spec.add_dependency "http", "~> 5.3"
+  spec.add_dependency "http", ">= 5.3"
   spec.add_dependency "link-header-parser", "~> 7.0", ">= 7.0.1"
   spec.add_dependency "nokogiri-html-ext", "~> 1.7"
 end
