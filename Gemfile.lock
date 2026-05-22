@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    indieweb-endpoints (10.0.2)
+    indieweb-endpoints (10.1.0)
       http (>= 5.3)
       link-header-parser (~> 7.0, >= 7.0.1)
       nokogiri-html-ext (~> 1.7)
@@ -221,7 +221,7 @@ CHECKSUMS
   http (5.3.1) sha256=c50802d8e9be3926cb84ac3b36d1a31fbbac383bc4cbecdce9053cb604231d7d
   http-cookie (1.1.6) sha256=ba4b82be64de61dc281243dac70e3c382c45142f20268ed9276a3670c93feaa9
   http-form_data (2.3.0) sha256=cc4eeb1361d9876821e31d7b1cf0b68f1cf874b201d27903480479d86448a5f3
-  indieweb-endpoints (10.0.2)
+  indieweb-endpoints (10.1.0)
   io-console (0.8.2) sha256=d6e3ae7a7cc7574f4b8893b4fca2162e57a825b223a177b7afa236c5ef9814cc
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
   json (2.19.5) sha256=218a18553e4801d579ca7e0f5bc72bafd776d7397238a1fb4e74db5b0a812c59
