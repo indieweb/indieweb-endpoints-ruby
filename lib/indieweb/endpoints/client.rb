@@ -13,7 +13,7 @@ module IndieWeb
       # @raise [InvalidURIError]
       def initialize(url)
         @uri = HTTP::URI.parse(url)
-      rescue Addressable::URI::InvalidURIError => e
+      rescue Addressable::URI::InvalidURIError, HTTP::URI::InvalidError => e
         raise InvalidURIError, e
       end
 
