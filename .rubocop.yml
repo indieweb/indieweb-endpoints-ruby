@@ -1,11 +1,7 @@
-inherit_from:
-  - https://rubocop.jgarber.cc/rubocop.yml
-  - https://rubocop.jgarber.cc/rubocop-rspec.yml
-
-plugins: rubocop-packaging
-
-AllCops:
-  TargetRubyVersion: "2.7"
+plugins:
+  - dryer_lint
+  - dryer_lint-rspec
+  - rubocop-packaging
 
 # Checks that spec file paths are consistent and well-formed.
 RSpec/SpecFilePathFormat:
