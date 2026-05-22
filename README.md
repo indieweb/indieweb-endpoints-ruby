@@ -1,6 +1,6 @@
 # indieweb-endpoints-ruby
 
-**A Ruby gem for discovering a URL's [IndieAuth](https://indieweb.org/IndieAuth), [Micropub](https://indieweb.org/Micropub), [Microsub](https://indieweb.org/Microsub), and [Webmention](https://indieweb.org/Webmention) endpoints.**
+A Ruby gem for discovering a URL's [IndieAuth](https://indieweb.org/IndieAuth), [Micropub](https://indieweb.org/Micropub), [Microsub](https://indieweb.org/Microsub), and [Webmention](https://indieweb.org/Webmention) endpoints.
 
 [![Gem](https://img.shields.io/gem/v/indieweb-endpoints.svg?logo=rubygems&style=for-the-badge)](https://rubygems.org/gems/indieweb-endpoints)
 [![Downloads](https://img.shields.io/gem/dt/indieweb-endpoints.svg?logo=rubygems&style=for-the-badge)](https://rubygems.org/gems/indieweb-endpoints)
@@ -82,4 +82,4 @@ indieweb-endpoints-ruby is written and maintained by [Jason Garber](https://sixt
 
 ## License
 
-indieweb-endpoints-ruby is freely available under the [MIT License](https://opensource.org/licenses/MIT).
+This project is freely available under the [MIT License](https://opensource.org/licenses/MIT).
