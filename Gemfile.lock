@@ -4,7 +4,7 @@ PATH
     indieweb-endpoints (10.0.2)
       http (~> 5.2)
       link-header-parser (~> 7.0, >= 7.0.1)
-      nokogiri-html-ext (~> 1.6)
+      nokogiri-html-ext (~> 1.7)
 
 GEM
   remote: https://beta.gem.coop/@jgarber/
