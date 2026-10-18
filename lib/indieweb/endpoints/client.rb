@@ -21,10 +21,7 @@ module IndieWeb
       # @!visibility private
       # simplecov:disable
       def inspect
-        format "#<%<class>s:%<id>#0x @uri=%<uri>s>",
-               class: self.class,
-               id: object_id << 1,
-               uri: uri.inspect
+        "#<#{self.class}:#{format("%#0x", object_id)} @uri: #{@uri.inspect}>"
       end
       # simplecov:enable
 
