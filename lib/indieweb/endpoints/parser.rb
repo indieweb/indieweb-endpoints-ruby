@@ -9,7 +9,9 @@ module IndieWeb
     class Parser
       # @param response [HTTP::Response]
       def initialize(response)
-        @response = response
+        @body = Nokogiri::HTML5(response.body, response.uri.to_s).resolve_urls!
+        @headers = LinkHeaderParser.parse(response.headers.get("link"), base_uri: response.uri).group_by_relation_type
+        @mime_type = response.mime_type
       end
 
       # @param identifier [String]
@@ -49,19 +51,6 @@ module IndieWeb
 
       private
 
-      # @return [HTTP::Response]
-      attr_reader :response
-
-      # @return [Nokogiri::HTML5::Document]
-      def body
-        @body ||= Nokogiri::HTML5(response.body, response.uri.to_s).resolve_urls!
-      end
-
-      # @return [Hash{Symbol => Array<LinkHeaderParser::LinkHeader>}]
-      def headers
-        @headers ||= LinkHeaderParser.parse(response.headers.get("link"), base_uri: response.uri).group_by_relation_type
-      end
-
       # Reject URLs with fragment identifiers per the IndieAuth specification.
       #
       # @param identifier [String, #to_s]
@@ -69,9 +58,9 @@ module IndieWeb
       #
       # @return [Array<String>]
       def matches_from_body(identifier, node_names)
-        return [] unless response.mime_type == "text/html"
+        return [] unless @mime_type == "text/html"
 
-        body
+        @body
           .css(*node_names.map { |node| %(#{node}[rel~="#{identifier}"][href]:not([href*="#"]) / @href) })
           .map(&:value)
       end
@@ -82,7 +71,7 @@ module IndieWeb
       #
       # @return [Array<String>]
       def matches_from_headers(identifier)
-        Array(headers[identifier]).filter_map do |header|
+        Array(@headers[identifier]).filter_map do |header|
           header.target_uri unless HTTP::URI.parse(header.target_uri).fragment
         end
       end
