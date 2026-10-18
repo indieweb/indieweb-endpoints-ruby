@@ -14,9 +14,9 @@ A Ruby gem for discovering a URL's [IndieAuth](https://indieweb.org/IndieAuth), 
 
 ## Getting Started
 
-Before installing and using indieweb-endpoints-ruby, you'll want to have [Ruby](https://www.ruby-lang.org) 2.7 (or newer) installed. Using a Ruby version managment tool like [rbenv](https://github.com/rbenv/rbenv), [chruby](https://github.com/postmodern/chruby), or [rvm](https://github.com/rvm/rvm) is recommended.
+Before installing and using indieweb-endpoints-ruby, you'll want to have [Ruby](https://www.ruby-lang.org) 2.7 (or newer) installed. Using a Ruby version managment tool like [rv](https://github.com/spinel-coop/rv) or [rbenv](https://github.com/rbenv/rbenv) is recommended.
 
-indieweb-endpoints-ruby is developed using Ruby 3.4 and is tested against additional Ruby versions using [GitHub Actions](https://github.com/indieweb/indieweb-endpoints-ruby/actions).
+indieweb-endpoints-ruby is developed using Ruby 4.0 and is tested against additional Ruby versions using [GitHub Actions](https://github.com/indieweb/indieweb-endpoints-ruby/actions).
 
 ## Installation
 
@@ -70,7 +70,7 @@ indieweb-endpoints-ruby may raise the following exceptions which are subclasses 
 
 ## Contributing
 
-See [CONTRIBUTING.md](https://github.com/indieweb/indieweb-endpoints-ruby/blob/main/CONTRIBUTING.md) for more on how to contribute to indieweb-endpoints-ruby. Your help is greatly appreciated!
+See [CONTRIBUTING.md](CONTRIBUTING.md) for more on how to contribute to indieweb-endpoints-ruby. Your help is greatly appreciated!
 
 By contributing to and participating in the development of indieweb-endpoints-ruby, you acknowledge that you have read and agree to the [IndieWeb Code of Conduct](https://indieweb.org/code-of-conduct).
 
