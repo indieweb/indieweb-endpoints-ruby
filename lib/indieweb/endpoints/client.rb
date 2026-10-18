@@ -4,6 +4,26 @@ module IndieWeb
   module Endpoints
     # A client interface to parse IndieWeb endpoints from a URL.
     class Client
+      # Set defaults derived from Webmention specification examples.
+      #
+      # @see https://www.w3.org/TR/webmention/#limits-on-get-requests
+      #   W3C Webmention Recommendation § 4.2 Limits on GET requests
+      HTTP_CLIENT_OPTS = {
+        follow: {
+          max_hops: 20,
+        },
+        headers: {
+          accept: "*/*",
+          user_agent: "Mozilla/5.0 (compatible; IndieWebEndpointsDiscovery/1.0; +https://rubygems.org/gems/indieweb-endpoints)",
+        },
+        timeout_options: {
+          connect_timeout: 5,
+          read_timeout: 5,
+        },
+      }.freeze
+
+      private_constant :HTTP_CLIENT_OPTS
+
       # Create a new {Client} to parse a URL for IndieWeb endpoints.
       #
       # @example
@@ -41,12 +61,7 @@ module IndieWeb
       #
       # @return [HTTP::Response]
       def response
-        @response ||=
-          HTTP
-            .follow(max_hops: 20)
-            .headers(accept: "*/*", user_agent: user_agent)
-            .timeout(connect: 5, read: 5)
-            .get(uri)
+        @response ||= client.request(:get, @uri)
       rescue HTTP::Error => e
         raise HttpError, e
       rescue OpenSSL::SSL::SSLError => e
@@ -55,12 +70,9 @@ module IndieWeb
 
       private
 
-      # @return [HTTP::URI]
-      attr_reader :uri
-
-      # @return [String]
-      def user_agent
-        "Mozilla/5.0 (compatible; IndieWebEndpointsDiscovery/1.0; +https://rubygems.org/gems/indieweb-endpoints)"
+      # @return [HTTP::Client]
+      def client
+        @client ||= HTTP::Client.new(HTTP_CLIENT_OPTS)
       end
     end
   end
