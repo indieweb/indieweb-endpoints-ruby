@@ -2,12 +2,8 @@
 
 module IndieWeb
   module Endpoints
-    class Error < StandardError; end
-
-    class HttpError < Error; end
-
-    class InvalidURIError < Error; end
-
-    class SSLError < Error; end
+    class HttpError < StandardError; end
+    class InvalidURIError < StandardError; end
+    class SSLError < StandardError; end
   end
 end
