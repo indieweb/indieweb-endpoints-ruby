@@ -2,6 +2,9 @@
 
 module IndieWeb
   module Endpoints
+    # A parser for extracting IndieWeb endpoints from an `HTTP::Response`
+    # instance's headers and body.
+    #
     # @api private
     class Parser
       # @param response [HTTP::Response]
@@ -12,9 +15,9 @@ module IndieWeb
       # @param identifier [String]
       # @param node_names [Array<String>]
       #
-      # @return [Array<String>]
-      #
       # @raise [InvalidURIError]
+      #
+      # @return [Array<String>]
       def matches(identifier, node_names: ["link"])
         results = (matches_from_headers(identifier) + matches_from_body(identifier, node_names)).compact
 

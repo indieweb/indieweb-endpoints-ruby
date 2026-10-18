@@ -2,13 +2,14 @@
 
 module IndieWeb
   module Endpoints
+    # A client interface to parse IndieWeb endpoints from a URL.
     class Client
-      # Create a new client with a URL to parse for IndieWeb endpoints.
+      # Create a new {Client} to parse a URL for IndieWeb endpoints.
       #
       # @example
-      #   client = IndieWeb::Endpoints::Client.new("https://aaronparecki.com")
+      #   IndieWeb::Endpoints::Client.new("https://aaronparecki.com")
       #
-      # @param url [String, HTTP::URI, #to_s] an absolute URL
+      # @param url [String, HTTP::URI, #to_s] An absolute URL.
       #
       # @raise [InvalidURIError]
       def initialize(url)
@@ -27,18 +28,21 @@ module IndieWeb
       end
       # simplecov:enable
 
-      # A Hash of the discovered IndieWeb endpoints from the provided URL.
+      # The IndieWeb endpoints advertised by the provided URL.i
+      #
+      # @example
+      #   IndieWeb::Endpoints::Client.new("https://aaronparecki.com").endpoints
       #
       # @return [Hash{Symbol => String, Array, nil}]
       def endpoints
         @endpoints ||= Parser.new(response).to_h
       end
 
-      # The +HTTP::Response+ object.
-      #
-      # @return [HTTP::Response]
+      # The `HTTP::Response` object for the provided URL.
       #
       # @raise [HttpError, SSLError]
+      #
+      # @return [HTTP::Response]
       def response
         @response ||=
           HTTP

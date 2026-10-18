@@ -8,7 +8,11 @@ require_relative "endpoints/exceptions"
 require_relative "endpoints/client"
 require_relative "endpoints/parser"
 
+# Welcome to the IndieWeb, a people-focused alternative to the "corporate web."
+#
+# @see https://indieweb.org
 module IndieWeb
+  # @see https://indieweb.org/endpoint
   module Endpoints
     # Discover a URL's IndieAuth, Micropub, Microsub, and Webmention endpoints.
     #
@@ -18,6 +22,8 @@ module IndieWeb
     #   IndieWeb::Endpoints.get("https://aaronparecki.com")
     #
     # @param (see Client#initialize)
+    #
+    # @raise (see Client#initialize)
     #
     # @return (see Client#endpoints)
     def self.get(url)
