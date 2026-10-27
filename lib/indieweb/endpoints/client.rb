@@ -27,11 +27,9 @@ module IndieWeb
       # Create a new {Client} to parse a URL for IndieWeb endpoints.
       #
       # @example
-      #   IndieWeb::Endpoints::Client.new("https://aaronparecki.com")
+      #   IndieWeb::Endpoints::Client.new("https://adactio.com")
       #
-      # @param url [String, HTTP::URI, #to_s] An absolute URL.
-      #
-      # @raise [InvalidURIError]
+      # @param url [String, #to_s] An absolute URL.
       def initialize(url)
         @uri = HTTP::URI.parse(url)
       rescue Addressable::URI::InvalidURIError, HTTP::URI::InvalidError => e
@@ -45,10 +43,12 @@ module IndieWeb
       end
       # simplecov:enable
 
-      # The IndieWeb endpoints advertised by the provided URL.i
+      # The IndieWeb endpoints advertised by the provided URL.
       #
       # @example
-      #   IndieWeb::Endpoints::Client.new("https://aaronparecki.com").endpoints
+      #   IndieWeb::Endpoints::Client.new("https://adactio.com").endpoints
+      #
+      # @raise (see #response)
       #
       # @return [Hash{Symbol => String, Array, nil}]
       def endpoints
