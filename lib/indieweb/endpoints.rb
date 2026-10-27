@@ -19,11 +19,11 @@ module IndieWeb
     # Convenience method for {Client#endpoints}.
     #
     # @example
-    #   IndieWeb::Endpoints.get("https://aaronparecki.com")
+    #   IndieWeb::Endpoints.get("https://adactio.com")
     #
     # @param (see Client#initialize)
     #
-    # @raise (see Client#initialize)
+    # @raise (see Client#endpoints)
     #
     # @return (see Client#endpoints)
     def self.get(url)
