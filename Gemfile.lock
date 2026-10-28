@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    indieweb-endpoints (10.2.0)
+    indieweb-endpoints (10.3.0)
       addressable (~> 2.9)
       link-header-parser (~> 7.0, >= 7.0.1)
       nokogiri-html-ext (~> 1.7)
@@ -179,7 +179,7 @@ CHECKSUMS
   dryer_lint-rspec (0.2.0) sha256=28828a86fdd36aa17678262e90df6d9ebd56f1fab99896b25f6bba71c3e5b261
   erb (6.0.7) sha256=c5ca6dc25b0ef974a44dc8f59fe847577122483b1968a38dec305c60bf91ee92
   hashdiff (1.2.1) sha256=9c079dbc513dfc8833ab59c0c2d8f230fa28499cc5efb4b8dd276cf931457cd1
-  indieweb-endpoints (10.2.0)
+  indieweb-endpoints (10.3.0)
   io-console (0.9.4) sha256=a403304f32928ee85e56d457b4612ca43f2703b561a3258844992bd24085fbb1
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
   json (3.1.0) sha256=3ce7ccf8fde58960177a3a756c31f292a4c1e1dedee884547096a5b0604e3bd8
