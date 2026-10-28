@@ -37,11 +37,11 @@ With indieweb-endpoints-ruby added to your project's `Gemfile` and installed, yo
 ```ruby
 require "indieweb/endpoints"
 
-IndieWeb::Endpoints.get("https://aaronparecki.com")
-#=> { authorization_endpoint: "https://aaronparecki.com/auth", "indieauth-metadata": "https://aaronparecki.com/.well-known/oauth-authorization-server", micropub: "https://aaronparecki.com/micropub", microsub: "https://aperture.p3k.io/microsub/1", redirect_uri: nil, token_endpoint: "https://aaronparecki.com/auth/token", webmention: "https://webmention.io/aaronpk/webmention" }
+IndieWeb::Endpoints.get("https://adactio.com")
+#=> { authorization_endpoint: "https://indieauth.com/auth", "indieauth-metadata": nil, micropub: "https://adactio.com/micropub", microsub: "https://aperture.p3k.io/microsub/152", redirect_uri: nil, token_endpoint: "https://tokens.indieauth.com/token", webmention: "https://adactio.com/webmention"}
 ```
 
-This example will search [Aaron's website](https://aaronparecki.com) for valid IndieAuth, Micropub, and Webmention endpoints and return a `Hash` of results. Each key in the returned `Hash` will have a value of either a `String` representing a URL or `nil`. The `redirect_uri` key's value will be either an `Array` or `nil` since a given URL may register multiple callback URLs.
+This example will search [Jeremy's website](https://adactio.com) for valid IndieAuth, Micropub, and Webmention endpoints and return a `Hash` of results. Each key in the returned `Hash` will have a value of either a `String` representing a URL or `nil`. The `redirect_uri` key's value will be either an `Array` or `nil` since a given URL may register multiple callback URLs.
 
 ### Advanced Usage
 
@@ -50,22 +50,22 @@ Should the need arise, you may work with the `IndieWeb::Endpoints::Client` class
 ```ruby
 require "indieweb/endpoints"
 
-client = IndieWeb::Endpoints::Client.new("https://aaronparecki.com")
-#=> #<IndieWeb::Endpoints::Client uri: "https://aaronparecki.com">
+client = IndieWeb::Endpoints::Client.new("https://adactio.com")
+#=> #<IndieWeb::Endpoints::Client @uri: Addressable::URI URI:https://adactio.com>>
 
 client.response
 #=> #<HTTP::Response/1.1 200 OK {…}>
 
 client.endpoints
-#=> { authorization_endpoint: "https://aaronparecki.com/auth", micropub: "https://aaronparecki.com/micropub", microsub: "https://aperture.p3k.io/microsub/1", redirect_uri: nil, token_endpoint: "https://aaronparecki.com/auth/token", webmention: "https://webmention.io/aaronpk/webmention" }
+#=> { authorization_endpoint: "https://indieauth.com/auth", "indieauth-metadata": nil, micropub: "https://adactio.com/micropub", microsub: "https://aperture.p3k.io/microsub/152", redirect_uri: nil, token_endpoint: "https://tokens.indieauth.com/token", webmention: "https://adactio.com/webmention"}
 ```
 
 ### Exception Handling
 
 indieweb-endpoints-ruby may raise the following exceptions which are subclasses of `IndieWeb::Endpoints::Error` (which itself is a subclass of `StandardError`).
 
-- `IndieWeb::Endpoints::InvalidURIError`
 - `IndieWeb::Endpoints::HttpError`
+- `IndieWeb::Endpoints::InvalidURIError`
 - `IndieWeb::Endpoints::SSLError`
 
 ## Contributing
