@@ -2,16 +2,17 @@
 
 module IndieWeb
   module Endpoints
-    # A parser for extracting IndieWeb endpoints from an `HTTP::Response`
-    # instance's headers and body.
-    #
-    # @api private
+    # A parser for extracting IndieWeb endpoints from an HTTP response's headers
+    # and body.
     class Parser
-      # @param response [HTTP::Response]
-      def initialize(response)
-        @body = Nokogiri::HTML5(response.body, response.uri.to_s).resolve_urls!
-        @headers = LinkHeaderParser.parse(response.headers.get("link"), base_uri: response.uri).group_by_relation_type
-        @mime_type = response.mime_type
+      # @param body [String, #to_s]
+      # @param headers [Array<String>]
+      # @param mime_type [String, #to_s]
+      # @param uri [Addressable::URI, URI, #to_s]
+      def initialize(body: "", headers: [], mime_type: "text/html", uri: "")
+        @body = Nokogiri::HTML5(body.to_s, uri.to_s).resolve_urls!
+        @headers = LinkHeaderParser.parse(Array(headers), base_uri: uri).group_by_relation_type
+        @mime_type = mime_type.to_s
       end
 
       # @param identifier [String]
@@ -69,11 +70,15 @@ module IndieWeb
       #
       # @param identifier [String, #to_sym]
       #
+      # @raise [InvalidURIError]
+      #
       # @return [Array<String>]
       def matches_from_headers(identifier)
         Array(@headers[identifier]).filter_map do |header|
-          header.target_uri unless HTTP::URI.parse(header.target_uri).fragment
+          header.target_uri unless Addressable::URI.parse(header.target_uri).fragment
         end
+      rescue Addressable::URI::InvalidURIError => e
+        raise InvalidURIError, e
       end
     end
   end

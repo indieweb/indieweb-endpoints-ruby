@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
-require "http"
+require "net/http"
+
+require "addressable"
 require "link-header-parser"
 require "nokogiri/html-ext"
 
-require_relative "endpoints/exceptions"
 require_relative "endpoints/client"
+require_relative "endpoints/exceptions"
+require_relative "endpoints/http"
 require_relative "endpoints/parser"
 
 # Welcome to the IndieWeb, a people-focused alternative to the "corporate web."

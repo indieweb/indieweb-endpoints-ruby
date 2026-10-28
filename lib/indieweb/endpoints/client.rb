@@ -4,26 +4,6 @@ module IndieWeb
   module Endpoints
     # A client interface to parse IndieWeb endpoints from a URL.
     class Client
-      # Set defaults derived from Webmention specification examples.
-      #
-      # @see https://www.w3.org/TR/webmention/#limits-on-get-requests
-      #   W3C Webmention Recommendation § 4.2 Limits on GET requests
-      HTTP_CLIENT_OPTS = {
-        follow: {
-          max_hops: 20,
-        },
-        headers: {
-          accept: "*/*",
-          user_agent: "Mozilla/5.0 (compatible; IndieWebEndpointsDiscovery/1.0; +https://rubygems.org/gems/indieweb-endpoints)",
-        },
-        timeout_options: {
-          connect_timeout: 5,
-          read_timeout: 5,
-        },
-      }.freeze
-
-      private_constant :HTTP_CLIENT_OPTS
-
       # Create a new {Client} to parse a URL for IndieWeb endpoints.
       #
       # @example
@@ -31,15 +11,13 @@ module IndieWeb
       #
       # @param url [String, #to_s] An absolute URL.
       def initialize(url)
-        @uri = HTTP::URI.parse(url)
-      rescue Addressable::URI::InvalidURIError, HTTP::URI::InvalidError => e
-        raise InvalidURIError, e
+        @url = url
       end
 
       # @!visibility private
       # simplecov:disable
       def inspect
-        "#<#{self.class}:#{format("%#0x", object_id)} @uri: #{@uri.inspect}>"
+        "#<#{self.class}:#{format("%#0x", object_id)} @url: #{@url}>"
       end
       # simplecov:enable
 
@@ -52,27 +30,22 @@ module IndieWeb
       #
       # @return [Hash{Symbol => String, Array, nil}]
       def endpoints
-        @endpoints ||= Parser.new(response).to_h
+        @endpoints ||=
+          Parser.new(
+            body: response.body,
+            headers: response.fetch("link", []),
+            mime_type: response.content_type,
+            uri: response.uri
+          ).to_h
       end
 
-      # The `HTTP::Response` object for the provided URL.
+      # The `Net::HTTPResponse` for the provided URL.
       #
-      # @raise [HttpError, SSLError]
+      # @raise (see HTTP#get)
       #
-      # @return [HTTP::Response]
+      # @return (see HTTP#get)
       def response
-        @response ||= client.request(:get, @uri)
-      rescue HTTP::Error => e
-        raise HttpError, e
-      rescue OpenSSL::SSL::SSLError => e
-        raise SSLError, e
-      end
-
-      private
-
-      # @return [HTTP::Client]
-      def client
-        @client ||= HTTP::Client.new(HTTP_CLIENT_OPTS)
+        @response ||= HTTP.new(@url).fetch
       end
     end
   end
